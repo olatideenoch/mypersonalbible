@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Privacy Policy — MyPersonal Bible</title>
+<meta name="description" content="Privacy Policy for MyPersonal Bible — how we collect, use, and protect your information."/>
+<meta name="robots" content="index, follow"/>
+<link rel="icon" type="image/jpeg" href="/static/img/app-icon.jpg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --cream: #f5f1e6;
+    --white: #ffffff;
+    --sage: #75895a;
+    --sage-light: #a3b485;
+    --sage-dark: #4c6138;
+    --ink: #232a1b;
+    --ink-soft: #52604a;
+    --border: rgba(117,137,90,0.22);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Lato', sans-serif;
+    line-height: 1.7;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .brand img { width: 32px; height: 32px; border-radius: 8px; }
+  .brand span {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: var(--ink);
+  }
+  .back-link {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--sage-dark);
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 1px solid var(--sage);
+    border-radius: 6px;
+    transition: all 0.2s;
+  }
+  .back-link:hover { background: var(--sage); color: var(--white); }
+
+  /* ── HERO ── */
+  .page-hero {
+    padding: 56px 24px 40px;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(117,137,90,0.08), transparent);
+  }
+  .page-hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: clamp(2.2rem, 5vw, 3rem);
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+  .page-hero p {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+  .page-hero .updated {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--sage-dark);
+    background: rgba(117,137,90,0.12);
+    padding: 6px 14px;
+    border-radius: 20px;
+  }
+
+  /* ── LAYOUT ── */
+  .wrap {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 24px 100px;
+  }
+  .card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 44px 48px;
+    box-shadow: 0 12px 40px rgba(35,42,27,0.06);
+  }
+
+  /* ── TOC ── */
+  .toc {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-bottom: 40px;
+  }
+  .toc h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+    color: var(--ink);
+  }
+  .toc ol {
+    columns: 2;
+    column-gap: 32px;
+    padding-left: 20px;
+    font-size: 0.88rem;
+  }
+  .toc li { margin-bottom: 8px; break-inside: avoid; }
+  .toc a { color: var(--sage-dark); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+
+  /* ── CONTENT ── */
+  section.policy-section {
+    margin-bottom: 36px;
+    scroll-margin-top: 90px;
+  }
+  section.policy-section:last-child { margin-bottom: 0; }
+  h2.sec-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 1.45rem;
+    color: var(--sage-dark);
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .policy-section p {
+    font-size: 0.96rem;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+  .policy-section ul {
+    margin: 0 0 14px 22px;
+    font-size: 0.96rem;
+  }
+  .policy-section ul li { margin-bottom: 8px; }
+  .policy-section strong { color: var(--ink); }
+  .note {
+    background: rgba(117,137,90,0.08);
+    border-left: 3px solid var(--sage);
+    border-radius: 6px;
+    padding: 14px 18px;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    margin: 16px 0;
+  }
+  a.inline-link { color: var(--sage-dark); font-weight: 700; text-decoration: none; }
+  a.inline-link:hover { text-decoration: underline; }
+
+  footer.page-footer {
+    text-align: center;
+    padding: 40px 24px 60px;
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+  }
+  footer.page-footer a { color: var(--sage-dark); text-decoration: none; }
+
+  @media (max-width: 640px) {
+    header { padding: 14px 18px; }
+    .brand span { font-size: 1rem; }
+    .card { padding: 30px 22px; }
+    .toc ol { columns: 1; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="/" class="brand">
+    <img src="/static/img/app-icon.jpg" alt="MyPersonal Bible"/>
+    <span>MyPersonal Bible</span>
+  </a>
+  <a href="/" class="back-link">← Back to App</a>
+</header>
+
+<div class="page-hero">
+  <h1>Privacy Policy</h1>
+  <p>How MyPersonal Bible collects, uses, and protects your information.</p>
+  <span class="updated">Effective Date: August 8, 2026</span>
+</div>
+
+<div class="wrap">
+  <div class="card">
+
+    <nav class="toc" aria-label="Table of contents">
+      <h2>Contents</h2>
+      <ol>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#information-we-collect">Information We Collect</a></li>
+        <li><a href="#how-we-use">How We Use Your Information</a></li>
+        <li><a href="#google-sign-in">Signing In with Google</a></li>
+        <li><a href="#sharing">How We Share Information</a></li>
+        <li><a href="#storage-security">Data Storage &amp; Security</a></li>
+        <li><a href="#retention">Data Retention</a></li>
+        <li><a href="#cookies">Cookies &amp; Similar Technologies</a></li>
+        <li><a href="#your-rights">Your Rights &amp; Choices</a></li>
+        <li><a href="#children">Children's Privacy</a></li>
+        <li><a href="#donations">Donations &amp; Support</a></li>
+        <li><a href="#third-party-links">Third-Party Links</a></li>
+        <li><a href="#changes">Changes to This Policy</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ol>
+    </nav>
+
+    <section class="policy-section" id="overview">
+      <h2 class="sec-title">1. Overview</h2>
+      <p>
+        MyPersonal Bible ("we," "us," "our," or "the App") is a free Bible reading, search, and audio
+        application available at <strong>mypersonal-bible-app.onrender.com</strong> and as an Android APK.
+        We built MyPersonal Bible to help people draw near to God through His Word — not to profit from your
+        personal data. This Privacy Policy explains what information we collect when you use the App, why we
+        collect it, how it's used, and the choices available to you.
+      </p>
+      <p>
+        By using MyPersonal Bible, you agree to the collection and use of information as described in this
+        Policy. If you do not agree, please discontinue use of the App.
+      </p>
+    </section>
+
+    <section class="policy-section" id="information-we-collect">
+      <h2 class="sec-title">2. Information We Collect</h2>
+      <p>We collect the minimum information needed to provide the App's features:</p>
+      <ul>
+        <li><strong>Account information:</strong> if you sign in with Google, we receive your name, email address, and profile picture from Google to create and identify your account.</li>
+        <li><strong>User content:</strong> bookmarks, highlights, notes, reading progress, and reading preferences (such as text size or Bible version) that you create while using the App.</li>
+        <li><strong>Contact form submissions:</strong> if you reach out via our Contact page, we collect the name, email address, and message you provide.</li>
+        <li><strong>Technical &amp; usage data:</strong> basic device and log information such as browser type, operating system, IP address, and general usage patterns (e.g., which features are used), collected automatically to keep the App secure and working properly.</li>
+      </ul>
+      <p>We do <strong>not</strong> knowingly collect sensitive personal information (such as health, financial, or biometric data), and we do not run advertising, so we do not collect data for ad targeting.</p>
+    </section>
+
+    <section class="policy-section" id="how-we-use">
+      <h2 class="sec-title">3. How We Use Your Information</h2>
+      <p>We use the information we collect to:</p>
+      <ul>
+        <li>Provide, operate, and maintain the App's core features (Bible reading, search, audio, bookmarks, highlights, and reading-progress tracking).</li>
+        <li>Sync your bookmarks, highlights, and progress across the devices you sign in on.</li>
+        <li>Respond to questions, feedback, or support requests you send us.</li>
+        <li>Monitor and improve the App's performance, reliability, and security.</li>
+        <li>Detect, prevent, and address technical issues or misuse.</li>
+      </ul>
+      <p>We do not sell your personal information, and we do not use your data to serve advertisements.</p>
+    </section>
+
+    <section class="policy-section" id="google-sign-in">
+      <h2 class="sec-title">4. Signing In with Google</h2>
+      <p>
+        MyPersonal Bible offers optional sign-in through Google OAuth. When you choose to sign in, Google
+        shares your basic profile information (name, email address, and profile photo) with us so we can
+        create your account and sync your data across devices. We only request the minimum scopes needed for
+        this purpose, and we never see or store your Google password.
+      </p>
+      <p>Your use of Google Sign-In is also governed by <a class="inline-link" href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's own Privacy Policy</a>.</p>
+    </section>
+
+    <section class="policy-section" id="sharing">
+      <h2 class="sec-title">5. How We Share Information</h2>
+      <p>We do not sell, rent, or trade your personal information. We only share information in these limited circumstances:</p>
+      <ul>
+        <li><strong>Service providers:</strong> trusted third parties that help us operate the App, such as our hosting provider and, where applicable, our donation/payment processor — bound to use your data only to perform services for us.</li>
+        <li><strong>Legal requirements:</strong> if required to comply with a legal obligation, protect our rights, or respond to a valid legal request.</li>
+        <li><strong>With your consent:</strong> in any other case where you've explicitly agreed to the sharing.</li>
+      </ul>
+    </section>
+
+    <section class="policy-section" id="storage-security">
+      <h2 class="sec-title">6. Data Storage &amp; Security</h2>
+      <p>
+        Your account data and user content are stored on secure cloud infrastructure. We use reasonable
+        administrative, technical, and physical safeguards designed to protect your information from
+        unauthorized access, alteration, disclosure, or destruction, including encrypted connections (HTTPS)
+        between your device and our servers.
+      </p>
+      <div class="note">
+        No method of transmission or storage is 100% secure. While we work hard to protect your information,
+        we cannot guarantee absolute security.
+      </div>
+    </section>
+
+    <section class="policy-section" id="retention">
+      <h2 class="sec-title">7. Data Retention</h2>
+      <p>
+        We retain your account information and user content for as long as your account remains active, or as
+        needed to provide you the App's features. If you request deletion of your account, we will delete or
+        anonymize your personal information within a reasonable timeframe, except where we're required to
+        retain certain data for legal or legitimate business purposes.
+      </p>
+    </section>
+
+    <section class="policy-section" id="cookies">
+      <h2 class="sec-title">8. Cookies &amp; Similar Technologies</h2>
+      <p>
+        MyPersonal Bible uses only essential cookies/local storage needed to keep you signed in and remember
+        your preferences (such as font size or dark mode). We do not use third-party advertising or tracking
+        cookies.
+      </p>
+    </section>
+
+    <section class="policy-section" id="your-rights">
+      <h2 class="sec-title">9. Your Rights &amp; Choices</h2>
+      <p>Depending on your location, you may have the right to:</p>
+      <ul>
+        <li>Access the personal information we hold about you.</li>
+        <li>Request correction of inaccurate information.</li>
+        <li>Request deletion of your account and associated data.</li>
+        <li>Withdraw consent for optional data processing (e.g., by signing out or deleting your account).</li>
+        <li>Export your bookmarks and highlights.</li>
+      </ul>
+      <p>To exercise any of these rights, contact us using the details in Section 14, and we'll respond within a reasonable timeframe.</p>
+    </section>
+
+    <section class="policy-section" id="children">
+      <h2 class="sec-title">10. Children's Privacy</h2>
+      <p>
+        MyPersonal Bible is intended for a general audience and is not directed at children under 13 (or the
+        minimum age required in your region). We do not knowingly collect personal information from children.
+        If you believe a child has provided us with personal information, please contact us so we can delete it.
+      </p>
+    </section>
+
+    <section class="policy-section" id="donations">
+      <h2 class="sec-title">11. Donations &amp; Support</h2>
+      <p>
+        MyPersonal Bible is free, with no subscriptions, paywalls, or ads. If you choose to support the App
+        financially, that transaction is handled by our third-party payment provider, and is subject to their
+        own privacy and security practices. We do not store your payment card details.
+      </p>
+    </section>
+
+    <section class="policy-section" id="third-party-links">
+      <h2 class="sec-title">12. Third-Party Links</h2>
+      <p>
+        The App may contain links to third-party websites or services (such as Google Sign-In or a payment
+        provider). We are not responsible for the privacy practices of these third parties, and we encourage
+        you to review their privacy policies before providing them any information.
+      </p>
+    </section>
+
+    <section class="policy-section" id="changes">
+      <h2 class="sec-title">13. Changes to This Policy</h2>
+      <p>
+        We may update this Privacy Policy from time to time to reflect changes in our practices or for legal
+        and regulatory reasons. We'll update the "Effective Date" at the top of this page when we do. We
+        encourage you to review this page periodically. Continued use of the App after changes take effect
+        constitutes acceptance of the revised Policy.
+      </p>
+    </section>
+
+    <section class="policy-section" id="contact">
+      <h2 class="sec-title">14. Contact Us</h2>
+      <p>
+        If you have questions, concerns, or requests regarding this Privacy Policy or your personal
+        information, please reach out through our
+        <a class="inline-link" href="/contact">Contact page</a>.
+      </p>
+    </section>
+
+  </div>
+</div>
+
+<footer class="page-footer">
+  <p>© 2026 MyPersonalBible. All rights reserved. · <a href="/">Home</a> · <a href="/contact">Contact</a></p>
+</footer>
+
+</body>
+</html>

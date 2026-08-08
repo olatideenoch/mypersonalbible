@@ -1,0 +1,2172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MyPersonal Bible — Draw Near to God Through His Living Word</title>
+
+<!-- ── SEO ── -->
+<meta name="description" content="Read, search, and listen to the Bible — free, ad-free, and always with you. Daily verses, full-text search across 31,000+ verses, an Audio Bible, bookmarks, and cloud sync. Available on the web and Android."/>
+<meta name="keywords" content="Bible app, Bible study, daily verse, audio Bible, Bible search, scripture, KJV, free Bible app, Android Bible app"/>
+<meta name="author" content="MyPersonalBible"/>
+<link rel="canonical" href="https://mypersonal-bible-app.onrender.com/"/>
+
+<!-- ── Open Graph / Facebook / WhatsApp ── -->
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://mypersonal-bible-app.onrender.com/"/>
+<meta property="og:title" content="MyPersonal Bible — Draw Near to God Through His Living Word"/>
+<meta property="og:description" content="Free, ad-free Bible app with daily verses, instant scripture search, an Audio Bible, bookmarks, and cloud sync — on the web and Android."/>
+<meta property="og:image" content="https://mypersonal-bible-app.onrender.com/static/img/app-icon.jpg"/>
+<meta property="og:site_name" content="MyPersonal Bible"/>
+
+<!-- ── Twitter Card ── -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="MyPersonal Bible — Draw Near to God Through His Living Word"/>
+<meta name="twitter:description" content="Free, ad-free Bible app with daily verses, instant scripture search, an Audio Bible, bookmarks, and cloud sync."/>
+<meta name="twitter:image" content="https://mypersonal-bible-app.onrender.com/static/img/app-icon.jpg"/>
+
+<!-- ── Theme / Favicon ── -->
+<meta name="theme-color" content="#3d2205"/>
+<link rel="icon" type="image/jpeg" href="https://mypersonal-bible-app.onrender.com/static/img/app-icon.jpg"/>
+<link rel="apple-touch-icon" href="https://mypersonal-bible-app.onrender.com/static/img/app-icon.jpg"/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Cinzel:wght@400;600;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --cream: #faf6ee;
+    --parchment: #f2e8d0;
+    --gold: #c9923a;
+    --gold-light: #e8b86a;
+    --gold-dark: #9a6a1e;
+    --brown: #3d2205;
+    --brown-mid: #6b3f12;
+    --brown-light: #a0622a;
+    --ink: #1a0f00;
+    --white: #ffffff;
+    --amber: #c9923a;
+    --amber-light: #e8b86a;
+    --shadow-gold: rgba(201,146,58,0.3);
+    --shadow-dark: rgba(26,15,0,0.4);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Lato', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ── NOISE TEXTURE OVERLAY ── */
+  body::before {
+    content:'';
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:999;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.5;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 48px;
+    background: rgba(250,246,238,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,146,58,0.2);
+    transition: all 0.3s ease;
+  }
+  nav.scrolled {
+    padding: 10px 48px;
+    box-shadow: 0 4px 24px var(--shadow-gold);
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+  .nav-logo img {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px var(--shadow-gold);
+  }
+  .nav-logo-text {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--brown);
+    letter-spacing: 0.03em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--brown-mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: var(--brown);
+    color: var(--gold-light) !important;
+    padding: 9px 22px !important;
+    border-radius: 4px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.12em !important;
+    font-weight: 700 !important;
+    transition: background 0.2s, box-shadow 0.2s !important;
+  }
+  .nav-cta:hover {
+    background: var(--brown-mid) !important;
+    color: var(--gold-light) !important;
+    box-shadow: 0 4px 18px var(--shadow-gold);
+  }
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 1px solid rgba(61,34,5,0.25);
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 0;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    margin: 0 auto;
+    background: var(--brown);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle.open span:nth-child(2) { opacity: 0; }
+  .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 100px 64px 60px;
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(ellipse 80% 80% at 70% 50%, rgba(201,146,58,0.08) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 100% at 0% 50%, rgba(61,34,5,0.05) 0%, transparent 60%);
+  }
+
+  /* decorative cross */
+  .hero-cross {
+    position: absolute;
+    right: 10%;
+    top: 10%;
+    width: 600px;
+    height: 600px;
+    opacity: 0.04;
+    pointer-events: none;
+  }
+  .hero-cross::before, .hero-cross::after {
+    content:'';
+    position:absolute;
+    background: var(--brown);
+    border-radius: 6px;
+  }
+  .hero-cross::before { width: 28px; height: 100%; left:50%; transform:translateX(-50%); }
+  .hero-cross::after  { height: 28px; width: 100%; top:30%; }
+
+  /* decorative lines */
+  .hero-lines {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .hero-lines span {
+    position: absolute;
+    display: block;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201,146,58,0.25), transparent);
+    animation: lineSlide 8s ease-in-out infinite;
+  }
+  .hero-lines span:nth-child(1) { top:20%; width:60%; left:-10%; animation-delay:0s; }
+  .hero-lines span:nth-child(2) { top:50%; width:40%; left:20%; animation-delay:2s; }
+  .hero-lines span:nth-child(3) { top:75%; width:70%; left:-5%; animation-delay:4s; }
+  @keyframes lineSlide { 0%,100%{opacity:0;transform:translateX(0)} 50%{opacity:1;transform:translateX(20px)} }
+
+  .hero-text { position:relative; z-index:2; }
+  .hero-eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s forwards;
+  }
+  .hero-eyebrow::before {
+    content:'';
+    display:inline-block;
+    width:40px; height:1px;
+    background: var(--gold);
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: clamp(3.2rem, 5.5vw, 5.2rem);
+    line-height: 1.08;
+    color: var(--brown);
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.4s forwards;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--gold-dark);
+  }
+
+  .hero-verse {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--brown-light);
+    line-height: 1.7;
+    max-width: 440px;
+    margin-bottom: 42px;
+    border-left: 3px solid var(--gold-light);
+    padding-left: 18px;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.6s forwards;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.8s forwards;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--brown);
+    color: var(--gold-light);
+    font-family: 'Cinzel', serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 16px 34px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 24px var(--shadow-dark);
+  }
+  .btn-primary:hover {
+    background: var(--gold-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px var(--shadow-gold);
+  }
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    color: var(--brown);
+    font-family: 'Cinzel', serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 16px 34px;
+    border-radius: 4px;
+    border: 1.5px solid var(--brown);
+    transition: all 0.3s ease;
+  }
+  .btn-secondary:hover {
+    background: var(--parchment);
+    border-color: var(--gold);
+    color: var(--gold-dark);
+  }
+
+  /* ── HERO DEVICE FRAMES (real screenshots) ── */
+  .hero-device {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    animation: fadeIn 1.2s 0.5s forwards;
+    min-height: 540px;
+  }
+  .hero-devices-stage {
+    position: relative;
+    width: 490px;
+    height: 520px;
+  }
+  /* glow behind devices */
+  .hero-devices-stage::before {
+    content:'';
+    position:absolute;
+    inset:-40px;
+    background: radial-gradient(circle, rgba(201,146,58,0.18) 0%, transparent 68%);
+    pointer-events:none;
+    z-index:0;
+  }
+
+  /* LAPTOP — realistic aluminum-style device frame, built the same way as the phone below */
+  .hlaptop-wrap {
+    position:absolute;
+    bottom:0; left:0;
+    z-index:1;
+    width:320px;
+    filter: drop-shadow(0 26px 50px rgba(26,15,0,0.45));
+  }
+  .hlaptop-lid {
+    width:100%;
+    background: linear-gradient(160deg, #6e6f71 0%, #3a3b3d 48%, #1c1c1e 100%);
+    border-radius:11px 11px 3px 3px;
+    padding:9px 9px 11px;
+    box-shadow:
+      inset 0 0 0 1.5px rgba(255,255,255,0.14),
+      inset 0 0 10px rgba(255,255,255,0.05),
+      0 0 0 1px rgba(0,0,0,0.55);
+  }
+  .hlaptop-cam {
+    width:5px; height:5px;
+    background:#050505;
+    border:1px solid rgba(255,255,255,0.18);
+    border-radius:50%;
+    margin:0 auto 7px;
+  }
+  .hlaptop-screen-wrap {
+    position:relative;
+    border-radius:3px;
+    overflow:hidden;
+    background:#000;
+    box-shadow: inset 0 0 0 1.5px #050505;
+  }
+  /* ── DESKTOP SCREENSHOT — replace src with your image path ── */
+  .hlaptop-screen {
+    width:100%;
+    height:172px;
+    display:block;
+    object-fit:cover;
+    object-position:top;
+  }
+  /* subtle glass glare, matching the phone screen treatment */
+  .hlaptop-screen-wrap::after {
+    content:'';
+    position:absolute;
+    inset:0;
+    background: linear-gradient(115deg, rgba(255,255,255,0.14) 0%, transparent 25%);
+    pointer-events:none;
+  }
+  .hlaptop-hinge {
+    width:100%;
+    height:7px;
+    background:linear-gradient(to bottom, #4c4d4f 0%, #232426 55%, #141415 100%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 1px 4px rgba(0,0,0,0.4);
+  }
+  /* Base = the keyboard deck, tapered like a real laptop base viewed from the front */
+  .hlaptop-base {
+    width:100%;
+    height:14px;
+    background: linear-gradient(to bottom, #86878a 0%, #55565a 45%, #3a3b3d 100%);
+    border-radius:0 0 10px 10px;
+    clip-path: polygon(2% 0, 98% 0, 100% 100%, 0 100%);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.35);
+    display:flex; align-items:flex-start; justify-content:center;
+    position:relative;
+  }
+  /* implied keyboard: a faint row of key seams across the deck */
+  .hlaptop-base::before {
+    content:'';
+    position:absolute;
+    top:3px; left:14%; right:14%; height:4px;
+    background-image: repeating-linear-gradient(90deg, rgba(0,0,0,0.22) 0 2px, transparent 2px 6px);
+    opacity:0.55;
+  }
+  .hlaptop-trackpad {
+    margin-top:8px;
+    width:56px; height:6px;
+    background:rgba(0,0,0,0.18);
+    border:1px solid rgba(0,0,0,0.25);
+    border-radius:3px;
+  }
+  .hlaptop-feet {
+    display:flex; justify-content:space-between; padding:0 20px;
+  }
+  .hlaptop-foot {
+    width:28px; height:4px;
+    background:rgba(26,15,0,0.85);
+    border-radius:0 0 4px 4px;
+    box-shadow:0 3px 8px rgba(0,0,0,0.35);
+  }
+
+  /* PHONE — realistic Android smartphone frame */
+  .hphone-wrap {
+    position:absolute;
+    bottom:0; right:-2px;
+    z-index:3;
+    filter: drop-shadow(0 30px 55px rgba(26,15,0,0.45));
+  }
+  .hphone-frame {
+    position:relative;
+    width:176px;
+    background: linear-gradient(160deg, #55565a 0%, #2b2c2e 45%, #131315 100%);
+    border-radius:26px;
+    padding:5px;
+    box-shadow:
+      inset 0 0 0 1.5px rgba(255,255,255,0.14),
+      inset 0 0 10px rgba(255,255,255,0.06),
+      0 0 0 1px rgba(0,0,0,0.55),
+      0 0 46px rgba(201,146,58,0.14);
+  }
+  /* side buttons for realism — Android layout: volume + power on the right edge */
+  .hphone-btn { position:absolute; background:linear-gradient(90deg,#3d3e40,#1a1a1b); z-index:0; }
+  .hphone-btn-vol-up    { right:-3px; top:78px;  width:3px; height:28px; border-radius:0 2px 2px 0; }
+  .hphone-btn-vol-down  { right:-3px; top:112px; width:3px; height:28px; border-radius:0 2px 2px 0; }
+  .hphone-btn-power     { right:-3px; top:150px; width:3px; height:42px; border-radius:0 2px 2px 0; }
+  .hphone-screen-wrap {
+    position:relative;
+    border-radius:21px;
+    overflow:hidden;
+    background:#000;
+    box-shadow: inset 0 0 0 2px #050505;
+  }
+  /* ── MOBILE SCREENSHOT — replace src with your image path ── */
+  .hphone-screen {
+    width:100%;
+    height:300px;
+    display:block;
+    object-fit:cover;
+    object-position:top;
+  }
+  /* Android-style centered punch-hole front camera */
+  .hphone-island {
+    position:absolute;
+    top:10px; left:50%;
+    transform:translateX(-50%);
+    width:12px; height:12px;
+    background:#000;
+    border-radius:50%;
+    z-index:5;
+    box-shadow: 0 0 0 1.5px rgba(255,255,255,0.06), inset 0 0 0 1px rgba(255,255,255,0.08);
+  }
+  .hphone-home {
+    position:absolute;
+    bottom:6px; left:50%;
+    transform:translateX(-50%);
+    width:90px; height:4px;
+    background:rgba(255,255,255,0.85);
+    border-radius:3px;
+    z-index:5;
+    pointer-events:none;
+  }
+  /* subtle glass glare */
+  .hphone-screen-wrap::after {
+    content:'';
+    position:absolute;
+    inset:0;
+    background: linear-gradient(115deg, rgba(255,255,255,0.16) 0%, transparent 22%);
+    pointer-events:none;
+    z-index:6;
+  }
+
+  /* stats */
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 52px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(61,34,5,0.15);
+    opacity: 0;
+    animation: fadeUp 0.9s 1s forwards;
+  }
+  .stat-item { text-align: left; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--gold-dark);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--brown-light);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-top: 4px;
+  }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+
+  /* ── DIVIDER ── */
+  .section-divider {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap: 16px;
+    padding: 20px 0;
+  }
+  .section-divider::before, .section-divider::after {
+    content:'';
+    flex:1;
+    height:1px;
+    background: linear-gradient(90deg, transparent, rgba(201,146,58,0.4), transparent);
+    max-width: 200px;
+  }
+  .divider-cross {
+    width: 20px; height: 20px;
+    position:relative;
+    color: var(--gold);
+    font-size: 1.2rem;
+  }
+
+  /* ── FEATURES ── */
+  .features-section {
+    padding: 100px 64px;
+    background: var(--brown);
+    position: relative;
+    overflow: hidden;
+  }
+  .features-section::before {
+    content:'';
+    position:absolute;
+    inset:0;
+    background: radial-gradient(ellipse 100% 60% at 50% 0%, rgba(201,146,58,0.08) 0%, transparent 70%);
+  }
+  .section-header {
+    text-align: center;
+    margin-bottom: 72px;
+    position: relative;
+  }
+  .section-eyebrow {
+    font-family:'Cinzel',serif;
+    font-size:0.7rem;
+    font-weight:600;
+    letter-spacing:0.35em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:14px;
+    display:block;
+  }
+  .section-title {
+    font-family:'Cormorant Garamond',serif;
+    font-size: clamp(2.4rem, 4vw, 3.8rem);
+    font-weight:600;
+    color:var(--cream);
+    line-height:1.15;
+  }
+  .section-title em { font-style:italic; color:var(--gold-light); }
+  .section-sub {
+    font-size:0.95rem;
+    color:rgba(250,246,238,0.6);
+    margin-top:14px;
+    max-width: 500px;
+    margin-left:auto;
+    margin-right:auto;
+    line-height:1.7;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .feature-card {
+    background: rgba(250,246,238,0.04);
+    border: 1px solid rgba(201,146,58,0.12);
+    padding: 48px 36px;
+    position: relative;
+    transition: all 0.4s ease;
+    overflow: hidden;
+  }
+  .feature-card::before {
+    content:'';
+    position:absolute;
+    bottom:0; left:0; right:0;
+    height:3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    transform:scaleX(0);
+    transition: transform 0.4s ease;
+  }
+  .feature-card:hover { background:rgba(250,246,238,0.07); transform:translateY(-4px); }
+  .feature-card:hover::before { transform:scaleX(1); }
+
+  .feature-icon {
+    width: 56px; height: 56px;
+    border-radius: 14px;
+    background: rgba(201,146,58,0.15);
+    border: 1px solid rgba(201,146,58,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin-bottom: 24px;
+    transition: all 0.3s;
+  }
+  .feature-card:hover .feature-icon {
+    background: rgba(201,146,58,0.25);
+    box-shadow: 0 0 20px rgba(201,146,58,0.2);
+  }
+  .feature-name {
+    font-family:'Cinzel',serif;
+    font-size:0.88rem;
+    font-weight:700;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--gold-light);
+    margin-bottom:12px;
+  }
+  .feature-desc {
+    font-size:0.9rem;
+    line-height:1.75;
+    color:rgba(250,246,238,0.65);
+  }
+  .feature-tag {
+    display:inline-block;
+    margin-top:16px;
+    font-size:0.68rem;
+    font-weight:700;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--gold);
+    opacity:0.7;
+  }
+
+  /* ── HOW IT WORKS ── */
+  .how-section {
+    padding: 110px 64px;
+    background: var(--cream);
+    position:relative;
+  }
+  .how-section::before {
+    content:'';
+    position:absolute;
+    top:0; left:0; right:0;
+    height:1px;
+    background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+  }
+  .how-steps {
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap:0;
+    max-width:1100px;
+    margin: 60px auto 0;
+    position:relative;
+  }
+  .how-steps::before {
+    content:'';
+    position:absolute;
+    top:40px;
+    left: calc(12.5% + 20px);
+    right: calc(12.5% + 20px);
+    height:1px;
+    background: repeating-linear-gradient(90deg, var(--gold-light) 0, var(--gold-light) 8px, transparent 8px, transparent 16px);
+    z-index:0;
+  }
+  .step-item {
+    text-align:center;
+    padding: 0 20px;
+    position:relative;
+    z-index:1;
+  }
+  .step-circle {
+    width:80px; height:80px;
+    border-radius:50%;
+    background:var(--parchment);
+    border: 2px solid var(--gold-light);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin: 0 auto 24px;
+    font-size:1.8rem;
+    position:relative;
+    transition: all 0.3s;
+    box-shadow: 0 4px 20px rgba(201,146,58,0.2);
+  }
+  .step-circle:hover {
+    background: var(--brown);
+    border-color: var(--gold);
+    transform:scale(1.08);
+    box-shadow: 0 8px 30px rgba(201,146,58,0.35);
+  }
+  .step-num {
+    position:absolute;
+    top:-6px; right:-6px;
+    width:22px; height:22px;
+    background:var(--brown);
+    color:var(--gold-light);
+    border-radius:50%;
+    font-family:'Cinzel',serif;
+    font-size:0.6rem;
+    font-weight:700;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .step-label {
+    font-family:'Cinzel',serif;
+    font-size:0.8rem;
+    font-weight:700;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--brown);
+    margin-bottom:8px;
+  }
+  .step-desc {
+    font-size:0.85rem;
+    line-height:1.65;
+    color:var(--brown-light);
+  }
+
+  /* ── DEMO / SCREENSHOTS SECTION ── */
+  .demo-section {
+    padding: 110px 64px;
+    background: linear-gradient(180deg, var(--parchment) 0%, var(--cream) 100%);
+    position:relative;
+    overflow:hidden;
+  }
+  .demo-section::after {
+    content:'✝';
+    position:absolute;
+    right:-40px; top:50%;
+    transform:translateY(-50%);
+    font-size:28rem;
+    color:rgba(61,34,5,0.025);
+    font-family:'Cinzel',serif;
+    pointer-events:none;
+    user-select:none;
+  }
+
+  .demo-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin: 48px auto 56px;
+    background: rgba(61,34,5,0.07);
+    border-radius: 10px;
+    padding: 4px;
+    max-width: 700px;
+  }
+  .demo-tab {
+    flex:1;
+    padding: 10px 14px;
+    border:none;
+    background:transparent;
+    font-family:'Cinzel',serif;
+    font-size:0.72rem;
+    font-weight:600;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--brown-light);
+    cursor:pointer;
+    border-radius:7px;
+    transition:all 0.25s;
+  }
+  .demo-tab.active {
+    background:var(--brown);
+    color:var(--gold-light);
+    box-shadow:0 3px 12px rgba(61,34,5,0.3);
+  }
+  .demo-tab:hover:not(.active) { color:var(--brown); background:rgba(61,34,5,0.06); }
+
+  .demo-panel { display:none; }
+  .demo-panel.active { display:grid; grid-template-columns:1.1fr 0.9fr; gap:60px; align-items:center; max-width:1100px; margin:0 auto; }
+
+  .demo-mockup {
+    display:flex;
+    justify-content:center;
+  }
+  .demo-browser {
+    width:100%;
+    max-width:480px;
+    background:var(--brown);
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 30px 80px rgba(26,15,0,0.4), 0 0 0 1px rgba(201,146,58,0.3);
+  }
+  .browser-bar {
+    background:rgba(0,0,0,0.25);
+    padding:10px 14px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .browser-dots { display:flex; gap:5px; }
+  .browser-dots span { width:9px; height:9px; border-radius:50%; }
+  .browser-dots span:nth-child(1) { background:#ff5f56; }
+  .browser-dots span:nth-child(2) { background:#ffbd2e; }
+  .browser-dots span:nth-child(3) { background:#27c93f; }
+  .browser-url {
+    flex:1;
+    background:rgba(255,255,255,0.1);
+    border-radius:4px;
+    padding:4px 12px;
+    font-family:'Lato',sans-serif;
+    font-size:0.65rem;
+    color:rgba(250,246,238,0.6);
+  }
+  /* ── DEMO SCREENSHOT FRAME — replace src in each panel ── */
+  .demo-screenshot {
+    width:100%;
+    display:block;
+    object-fit:cover;
+    object-position:top;
+    min-height:260px;
+    background:var(--parchment);
+  }
+
+  /* ── VIDEO MODAL ── */
+  .video-modal-overlay {
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(10,5,0,0.88);
+    z-index:2000;
+    align-items:center;
+    justify-content:center;
+    backdrop-filter:blur(6px);
+  }
+  .video-modal-overlay.open { display:flex; }
+  .video-modal-box {
+    position:relative;
+    width:min(680px, 94vw);
+    aspect-ratio:1/1;
+    background:#000;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 0 0 1px rgba(201,146,58,0.35), 0 40px 100px rgba(0,0,0,0.8);
+    animation:modalIn 0.3s ease;
+  }
+  @keyframes modalIn { from{opacity:0;transform:scale(0.9)} to{opacity:1;transform:scale(1)} }
+  .video-modal-box iframe,
+  .video-modal-box video {
+    width:100%; height:100%;
+    border:none;
+    display:block;
+  }
+  .video-modal-close {
+    position:absolute;
+    top:12px; right:14px;
+    width:36px; height:36px;
+    background:rgba(61,34,5,0.85);
+    border:1px solid rgba(201,146,58,0.4);
+    border-radius:50%;
+    color:var(--gold-light);
+    font-size:1.1rem;
+    cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    z-index:10;
+    transition:all 0.2s;
+  }
+  .video-modal-close:hover { background:var(--brown); transform:scale(1.1); }
+  .video-modal-title {
+    position:absolute;
+    bottom:0; left:0; right:0;
+    padding:14px 18px;
+    background:linear-gradient(to top, rgba(10,5,0,0.85), transparent);
+    font-family:'Cinzel',serif;
+    font-size:0.75rem;
+    letter-spacing:0.1em;
+    color:var(--gold-light);
+    text-transform:uppercase;
+  }
+
+  /* ── SUPPORT SECTION ── */
+  .support-section {
+    padding:110px 64px;
+    background:var(--parchment);
+    position:relative;
+    overflow:hidden;
+  }
+  .support-section::before {
+    content:'';
+    position:absolute;
+    inset:0;
+    background:
+      radial-gradient(circle 500px at 80% 50%, rgba(201,146,58,0.08) 0%, transparent 70%),
+      radial-gradient(circle 400px at 10% 50%, rgba(61,34,5,0.04) 0%, transparent 60%);
+  }
+  .support-inner {
+    max-width:1100px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:80px;
+    align-items:center;
+    position:relative;
+    z-index:1;
+  }
+  .support-text {}
+  .support-text .section-eyebrow { color:var(--gold-dark); }
+  .support-title {
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(2.2rem,3.5vw,3.4rem);
+    font-weight:600;
+    color:var(--brown);
+    line-height:1.15;
+    margin-bottom:18px;
+  }
+  .support-title em { font-style:italic; color:var(--gold-dark); }
+  .support-text p {
+    font-size:0.97rem;
+    line-height:1.82;
+    color:var(--brown-light);
+    margin-bottom:16px;
+  }
+  .support-ways {
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    margin:28px 0 36px;
+  }
+  .support-way {
+    display:flex;
+    align-items:flex-start;
+    gap:14px;
+    background:rgba(255,255,255,0.65);
+    border:1px solid rgba(201,146,58,0.2);
+    border-radius:10px;
+    padding:16px 18px;
+    transition:all 0.3s;
+  }
+  .support-way:hover {
+    border-color:rgba(201,146,58,0.45);
+    box-shadow:0 6px 22px rgba(201,146,58,0.12);
+    transform:translateX(4px);
+  }
+  .support-way-icon {
+    width:40px; height:40px;
+    border-radius:10px;
+    background:rgba(201,146,58,0.15);
+    border:1px solid rgba(201,146,58,0.25);
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.15rem;
+    flex-shrink:0;
+  }
+  .support-way-label {
+    font-family:'Cinzel',serif;
+    font-size:0.75rem;
+    font-weight:700;
+    letter-spacing:0.07em;
+    text-transform:uppercase;
+    color:var(--brown);
+    margin-bottom:4px;
+  }
+  .support-way-desc {
+    font-size:0.82rem;
+    color:var(--brown-light);
+    line-height:1.55;
+  }
+  .support-btns { display:flex; gap:14px; flex-wrap:wrap; }
+  /* support right card */
+  .support-card {
+    background:var(--brown);
+    border-radius:20px;
+    padding:52px 44px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 30px 70px rgba(61,34,5,0.3);
+  }
+  .support-card::before {
+    content:'✝';
+    position:absolute;
+    right:-20px; bottom:-30px;
+    font-size:14rem;
+    color:rgba(201,146,58,0.06);
+    font-family:'Cinzel',serif;
+    pointer-events:none;
+  }
+  .support-card-icon {
+    font-size:3.2rem;
+    margin-bottom:20px;
+    display:block;
+  }
+  .support-card h3 {
+    font-family:'Cormorant Garamond',serif;
+    font-size:2rem;
+    font-weight:600;
+    color:var(--cream);
+    margin-bottom:14px;
+    line-height:1.2;
+  }
+  .support-card h3 em { font-style:italic; color:var(--gold-light); }
+  .support-card p {
+    font-size:0.9rem;
+    color:rgba(250,246,238,0.6);
+    line-height:1.75;
+    margin-bottom:32px;
+  }
+  .support-card-verse {
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:0.9rem;
+    color:rgba(201,146,58,0.7);
+    border-top:1px solid rgba(201,146,58,0.2);
+    padding-top:22px;
+    margin-top:8px;
+    line-height:1.65;
+  }
+  .support-card-verse span {
+    display:block;
+    font-family:'Cinzel',serif;
+    font-style:normal;
+    font-size:0.6rem;
+    letter-spacing:0.15em;
+    color:rgba(201,146,58,0.5);
+    margin-top:6px;
+  }
+  @media (max-width:1024px) {
+    .support-inner { grid-template-columns:1fr; gap:48px; }
+  }
+
+  .screen-daily {
+    font-family:'Cormorant Garamond',serif;
+  }
+  .screen-daily h4 { font-family:'Cinzel',serif; font-size:0.65rem; letter-spacing:0.2em; color:var(--gold); text-transform:uppercase; margin-bottom:14px; }
+  .screen-daily .sv-ref { font-size:1.1rem; font-weight:600; color:var(--brown); margin-bottom:10px; }
+  .screen-daily .sv-text { font-style:italic; font-size:1rem; line-height:1.7; color:var(--brown-mid); }
+  .screen-daily .sv-actions { display:flex; gap:10px; margin-top:18px; }
+  .sv-btn { display:inline-flex; align-items:center; gap:6px; padding:7px 14px; border-radius:5px; font-family:'Lato',sans-serif; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; cursor:pointer; border:none; transition:all 0.2s; }
+  .sv-btn-primary { background:var(--brown); color:var(--gold-light); }
+  .sv-btn-secondary { background:transparent; border:1.5px solid var(--brown-light); color:var(--brown-light); }
+
+  .screen-search input {
+    width:100%; padding:10px 14px;
+    border:1.5px solid rgba(201,146,58,0.4);
+    border-radius:7px;
+    font-family:'Lato',sans-serif;
+    font-size:0.85rem;
+    background:white;
+    color:var(--brown);
+    outline:none;
+    margin-bottom:16px;
+  }
+  .search-result { padding:12px 0; border-bottom:1px solid rgba(61,34,5,0.1); }
+  .search-result .sr-ref { font-family:'Cinzel',serif; font-size:0.65rem; letter-spacing:0.12em; color:var(--gold-dark); margin-bottom:5px; }
+  .search-result .sr-text { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:0.88rem; line-height:1.55; color:var(--brown-mid); }
+
+  .screen-audio .audio-track {
+    background:var(--brown);
+    border-radius:10px;
+    padding:16px;
+    margin-bottom:12px;
+  }
+  .at-title { font-family:'Cinzel',serif; font-size:0.7rem; letter-spacing:0.1em; color:var(--gold-light); margin-bottom:6px; }
+  .at-book { font-family:'Cormorant Garamond',serif; font-size:0.85rem; color:rgba(250,246,238,0.7); margin-bottom:12px; }
+  .at-bar { height:4px; background:rgba(255,255,255,0.15); border-radius:2px; position:relative; }
+  .at-bar::before { content:''; position:absolute; left:0; top:0; height:100%; width:40%; background:var(--amber); border-radius:2px; }
+  .at-controls { display:flex; justify-content:center; gap:14px; margin-top:10px; font-size:1.2rem; }
+  .at-btn { background:none; border:none; font-size:1.3rem; cursor:pointer; color:rgba(250,246,238,0.7); transition:color 0.2s; }
+  .at-btn.play { background:var(--amber); color:var(--brown); width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1rem; }
+
+  .demo-info h3 {
+    font-family:'Cormorant Garamond',serif;
+    font-size:2.2rem;
+    font-weight:600;
+    color:var(--brown);
+    line-height:1.2;
+    margin-bottom:16px;
+  }
+  .demo-info h3 em { font-style:italic; color:var(--gold-dark); }
+  .demo-info p { font-size:0.95rem; line-height:1.8; color:var(--brown-light); margin-bottom:24px; }
+  .demo-feature-list { list-style:none; display:flex; flex-direction:column; gap:12px; }
+  .demo-feature-list li { display:flex; align-items:flex-start; gap:12px; font-size:0.9rem; color:var(--brown-mid); line-height:1.5; }
+  .dfl-icon { width:22px; height:22px; border-radius:5px; background:rgba(201,146,58,0.2); display:flex; align-items:center; justify-content:center; font-size:0.75rem; flex-shrink:0; margin-top:1px; }
+  .demo-info .btn-primary { margin-top:28px; display:inline-flex; }
+
+  /* ── VIDEO SECTION ── */
+  .video-section {
+    padding: 110px 64px;
+    background: var(--brown);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .video-section::before {
+    content:'';
+    position:absolute;
+    inset:0;
+    background:
+      radial-gradient(ellipse 80% 40% at 50% 0%, rgba(201,146,58,0.1) 0%, transparent 60%),
+      radial-gradient(ellipse 80% 40% at 50% 100%, rgba(201,146,58,0.06) 0%, transparent 60%);
+  }
+  .video-grid {
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    gap:28px;
+    max-width:1100px;
+    margin:60px auto 0;
+  }
+  .video-card {
+    border-radius:14px;
+    overflow:hidden;
+    background:rgba(250,246,238,0.05);
+    border:1px solid rgba(201,146,58,0.15);
+    transition:all 0.3s;
+    cursor:pointer;
+    text-align:left;
+  }
+  .video-card:hover {
+    border-color:rgba(201,146,58,0.4);
+    transform:translateY(-6px);
+    box-shadow:0 20px 50px rgba(0,0,0,0.4);
+  }
+  .video-thumb {
+    aspect-ratio:16/9;
+    background:linear-gradient(135deg, rgba(61,34,5,0.8), rgba(201,146,58,0.3));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .video-thumb::before {
+    content:'';
+    position:absolute;
+    inset:0;
+    background:url("data:image/svg+xml,%3Csvg viewBox='0 0 400 225' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='400' height='225' fill='%233d2205'/%3E%3Ccircle cx='200' cy='112' r='80' fill='%236b3f12' opacity='0.3'/%3E%3Ctext x='200' y='90' text-anchor='middle' fill='%23c9923a' font-size='60' font-family='serif'%3E✝%3C/text%3E%3C/svg%3E") center/cover;
+  }
+  .video-thumb-1::before { background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 400 225' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='400' height='225' fill='%231a0f00'/%3E%3Ccircle cx='200' cy='112' r='100' fill='%233d2205'/%3E%3Ctext x='200' y='85' text-anchor='middle' fill='%23c9923a' font-size='60'%3E📖%3C/text%3E%3Ctext x='200' y='140' text-anchor='middle' fill='%23e8b86a' font-size='12' font-family='serif'%3EREAD%3C/text%3E%3C/svg%3E"); }
+  .video-thumb-2::before { background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 400 225' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='400' height='225' fill='%231a0f00'/%3E%3Ccircle cx='200' cy='112' r='100' fill='%233d2205'/%3E%3Ctext x='200' y='85' text-anchor='middle' fill='%23c9923a' font-size='60'%3E🎧%3C/text%3E%3Ctext x='200' y='140' text-anchor='middle' fill='%23e8b86a' font-size='12' font-family='serif'%3ELISTEN%3C/text%3E%3C/svg%3E"); }
+  .video-thumb-3::before { background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 400 225' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='400' height='225' fill='%231a0f00'/%3E%3Ccircle cx='200' cy='112' r='100' fill='%233d2205'/%3E%3Ctext x='200' y='85' text-anchor='middle' fill='%23c9923a' font-size='60'%3E☁️%3C/text%3E%3Ctext x='200' y='140' text-anchor='middle' fill='%23e8b86a' font-size='12' font-family='serif'%3ESYNC%3C/text%3E%3C/svg%3E"); }
+  .play-btn {
+    position:relative; z-index:1;
+    width:56px; height:56px;
+    background:rgba(201,146,58,0.9);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.4rem;
+    color:var(--brown);
+    transition:all 0.3s;
+    box-shadow:0 4px 20px rgba(0,0,0,0.4);
+  }
+  .video-card:hover .play-btn { background:var(--gold-light); transform:scale(1.1); }
+  .video-badge {
+    position:absolute;
+    top:10px; left:10px;
+    background:var(--brown);
+    color:var(--gold-light);
+    font-family:'Cinzel',serif;
+    font-size:0.55rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    padding:4px 9px;
+    border-radius:3px;
+    z-index:1;
+  }
+  .video-info { padding:18px 18px 20px; }
+  .video-title { font-family:'Cinzel',serif; font-size:0.82rem; font-weight:700; letter-spacing:0.06em; color:var(--gold-light); text-transform:uppercase; margin-bottom:7px; }
+  .video-desc { font-size:0.82rem; line-height:1.6; color:rgba(250,246,238,0.55); }
+  .video-duration { font-size:0.68rem; color:var(--gold); margin-top:10px; font-weight:700; letter-spacing:0.05em; }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials-section {
+    padding: 110px 64px;
+    background: var(--cream);
+    position:relative;
+  }
+  .testimonials-grid {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+    max-width:1100px;
+    margin:60px auto 0;
+  }
+  .testimonial-card {
+    background:var(--parchment);
+    border:1px solid rgba(201,146,58,0.2);
+    border-radius:12px;
+    padding:36px 30px;
+    position:relative;
+    transition:all 0.3s;
+  }
+  .testimonial-card:hover {
+    transform:translateY(-4px);
+    box-shadow:0 16px 50px rgba(201,146,58,0.15);
+    border-color:rgba(201,146,58,0.4);
+  }
+  .tc-quote {
+    font-family:'Cormorant Garamond',serif;
+    font-size:3.5rem;
+    color:var(--gold-light);
+    line-height:1;
+    margin-bottom:-12px;
+    display:block;
+  }
+  .tc-text {
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:1.02rem;
+    line-height:1.75;
+    color:var(--brown-mid);
+    margin-bottom:24px;
+  }
+  .tc-author { display:flex; align-items:center; gap:12px; }
+  .tc-avatar {
+    width:42px; height:42px;
+    border-radius:50%;
+    background:var(--brown);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--gold-light);
+    font-family:'Cinzel',serif;
+    font-size:1rem;
+    font-weight:700;
+    flex-shrink:0;
+  }
+  .tc-name { font-family:'Cinzel',serif; font-size:0.75rem; font-weight:700; letter-spacing:0.05em; color:var(--brown); text-transform:uppercase; }
+  .tc-role { font-size:0.72rem; color:var(--brown-light); margin-top:2px; }
+  .tc-stars { color:var(--gold); font-size:0.7rem; margin-top:4px; letter-spacing:2px; }
+
+  /* ── VERSE CAROUSEL ── */
+  .verse-section {
+    padding: 80px 64px;
+    background: var(--brown);
+    text-align:center;
+    overflow:hidden;
+  }
+  .verse-ticker {
+    display:flex;
+    gap:80px;
+    animation: ticker 30s linear infinite;
+    white-space:nowrap;
+    margin-top:0;
+  }
+  .verse-ticker-item {
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:1.1rem;
+    color:rgba(250,246,238,0.45);
+    flex-shrink:0;
+    display:flex;
+    align-items:center;
+    gap:28px;
+  }
+  .verse-ticker-item::after { content:'✦'; color:var(--gold); opacity:0.5; font-style:normal; font-size:0.8rem; }
+  @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+  /* ── Lighter-weight motion ── */
+  /* Pause continuous animations when their section is off-screen (toggled via JS) */
+  .hero.anim-paused .hero-lines span { animation-play-state: paused; }
+  .verse-section.anim-paused .verse-ticker { animation-play-state: paused; }
+
+  /* Respect reduced-motion preference: cut decorative/looping animation, keep content instantly visible */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+    .hero-lines span { display: none; }
+    .verse-ticker { animation: none !important; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+  }
+
+  /* ── CTA / FOOTER SECTION ── */
+  .cta-section {
+    padding: 120px 64px;
+    background: var(--cream);
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .cta-section::before {
+    content:'';
+    position:absolute;
+    inset:0;
+    background:
+      radial-gradient(circle 400px at 30% 50%, rgba(201,146,58,0.1) 0%, transparent 70%),
+      radial-gradient(circle 400px at 70% 50%, rgba(61,34,5,0.05) 0%, transparent 70%);
+  }
+  .cta-inner { position:relative; z-index:1; }
+  .cta-inner h2 {
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(2.8rem,5vw,5rem);
+    font-weight:600;
+    color:var(--brown);
+    line-height:1.1;
+    margin-bottom:20px;
+  }
+  .cta-inner h2 em { font-style:italic; color:var(--gold-dark); }
+  .cta-inner p { font-size:1rem; color:var(--brown-light); max-width:480px; margin:0 auto 44px; line-height:1.8; }
+  .cta-btns { display:flex; justify-content:center; gap:16px; flex-wrap:wrap; }
+
+  footer {
+    background:var(--brown);
+    color:rgba(250,246,238,0.5);
+    padding:48px 64px;
+    display:grid;
+    grid-template-columns:1.3fr 1fr 1fr 1fr 1fr;
+    gap:40px;
+    border-top:1px solid rgba(201,146,58,0.15);
+  }
+  /* .footer-brand {
+
+  } */
+  .footer-brand .fb-logo { display:flex; align-items:center; gap:10px; margin-bottom:14px; }
+  .footer-brand .fb-logo img { width:32px; height:32px; border-radius:8px; }
+  .footer-brand .fb-name { font-family:'Cinzel',serif; font-weight:700; font-size:0.9rem; color:var(--gold-light); }
+  .footer-brand p { font-size:0.82rem; line-height:1.7; max-width:220px; }
+  .footer-col h4 { font-family:'Cinzel',serif; font-size:0.7rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold-light); margin-bottom:18px; }
+  .footer-col ul { list-style:none; display:flex; flex-direction:column; gap:10px; }
+  .footer-col ul a { font-size:0.82rem; color:rgba(250,246,238,0.5); text-decoration:none; transition:color 0.2s; }
+  .footer-col ul a:hover { color:var(--gold-light); }
+  .footer-bottom {
+    background:var(--brown);
+    border-top:1px solid rgba(201,146,58,0.1);
+    padding:20px 64px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:0.75rem;
+    color:rgba(250,246,238,0.3);
+  }
+  .footer-bottom .fbc { color:var(--gold); font-family:'Cinzel',serif; letter-spacing:0.05em; }
+  .footer-bottom .fbl { color:rgba(250,246,238,0.55); text-decoration:underline; text-underline-offset:2px; transition:color 0.2s; }
+  .footer-bottom .fbl:hover { color:var(--gold-light); }
+
+  /* ── SCROLL ANIMATIONS ── */
+  .reveal {
+    opacity:0;
+    transform:translateY(30px);
+    transition:opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+  .reveal-delay-1 { transition-delay:0.1s; }
+  .reveal-delay-2 { transition-delay:0.2s; }
+  .reveal-delay-3 { transition-delay:0.3s; }
+
+  /* ── RESPONSIVE ── */
+
+  /* Base: make imagery fluid by default (device-frame screenshots keep their own fixed crop heights) */
+  img:not(.hlaptop-screen):not(.hphone-screen):not(.demo-screenshot) { max-width: 100%; height: auto; }
+
+  /* ── Large tablets / small laptops ── */
+  @media (max-width:1180px) {
+    .hero { padding: 100px 40px 60px; gap: 40px; }
+    .hero-devices-stage { width: 420px; height: 450px; transform: scale(0.92); transform-origin: bottom right; }
+  }
+
+  /* ── Tablets ── */
+  @media (max-width:1024px) {
+    nav { padding:14px 24px; }
+    .nav-links {
+      display: flex;
+      position: absolute;
+      top: 100%; left: 0; right: 0;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      background: var(--cream);
+      border-bottom: 1px solid rgba(201,146,58,0.2);
+      box-shadow: 0 16px 30px rgba(26,15,0,0.12);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+    .nav-links.open { max-height: 420px; }
+    .nav-links li { width: 100%; }
+    .nav-links a { display: block; padding: 16px 28px; border-bottom: 1px solid rgba(61,34,5,0.08); }
+    .nav-links .nav-cta { margin: 14px 28px; text-align: center; justify-content: center; }
+    .nav-toggle { display: flex; }
+
+    .hero { grid-template-columns:1fr; padding:120px 32px 50px; text-align: center; }
+    .hero-eyebrow, .hero-btns, .hero-stats { justify-content: center; }
+    .hero-verse { margin-left:auto; margin-right:auto; text-align:left; }
+    .hero-device { min-height: 380px; margin-top: 20px; }
+    .hero-devices-stage { width: 380px; height: 400px; transform: scale(0.85); }
+
+    .features-grid { grid-template-columns:repeat(2,1fr); }
+    .how-steps { grid-template-columns:repeat(2,1fr); row-gap: 48px; }
+    .how-steps::before { display:none; }
+    .video-grid { grid-template-columns:repeat(2,1fr); }
+    .testimonials-grid { grid-template-columns:1fr 1fr; }
+    .demo-panel.active { grid-template-columns:1fr; gap: 36px; }
+    .demo-mockup { order: 1; }
+    .demo-info { order: 2; text-align: left; }
+    footer { grid-template-columns:1fr 1fr; }
+    .support-inner { grid-template-columns: 1fr; gap: 48px; }
+  }
+
+  /* ── Small tablets / large phones ── */
+  @media (max-width:768px) {
+    .hero { padding-top: 110px; }
+    .hero-device { display:none; }
+    .hero-stats { justify-content: center; gap: 32px; }
+    .features-section, .how-section, .demo-section, .video-section, .testimonials-section, .support-section, .cta-section {
+      padding-left: 28px; padding-right: 28px;
+    }
+    .features-grid { grid-template-columns:1fr 1fr; gap: 1px; }
+    .video-grid { grid-template-columns:1fr; }
+    .testimonials-grid { grid-template-columns:1fr; }
+    .demo-tabs { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+    .demo-tabs::-webkit-scrollbar { display: none; }
+    .demo-tab { flex: 0 0 auto; padding: 10px 16px; white-space: nowrap; }
+    .demo-browser { max-width: 100%; }
+    .video-thumb { aspect-ratio: 16/10; }
+  }
+
+  /* ── Phones ── */
+  @media (max-width:640px) {
+    nav { padding: 12px 18px; }
+    .nav-logo-text { font-size: 0.85rem; }
+    .nav-logo img { width: 32px; height: 32px; }
+
+    h1 { font-size: clamp(2.4rem, 9vw, 3.2rem); }
+    .hero-verse { font-size: 1rem; padding-left: 14px; }
+    .hero-btns { flex-direction: column; align-items: stretch; }
+    .btn-primary, .btn-secondary { justify-content: center; width: 100%; }
+    .hero-stats { gap: 20px 28px; padding-top: 24px; }
+    .stat-num { font-size: 1.9rem; }
+
+    .features-grid { grid-template-columns:1fr; }
+    .feature-card { padding: 36px 26px; }
+
+    .how-steps { grid-template-columns: 1fr; gap: 40px; }
+
+    .section-title { font-size: clamp(1.9rem, 8vw, 2.6rem); }
+    .section-sub { font-size: 0.88rem; padding: 0 4px; }
+
+    .demo-info h3 { font-size: 1.7rem; }
+    .demo-screenshot { min-height: 200px; }
+
+    .video-grid { grid-template-columns:1fr; }
+    .video-modal-box { width: 94vw; }
+
+    .support-ways { gap: 10px; }
+    .support-card { padding: 40px 26px; }
+
+    .cta-inner h2 { font-size: clamp(2.1rem, 10vw, 3rem); }
+    .cta-btns { flex-direction: column; align-items: stretch; }
+    .cta-btns .btn-primary, .cta-btns .btn-secondary { width: 100%; }
+
+    footer { grid-template-columns:1fr; padding: 40px 28px; gap: 32px; }
+    .footer-bottom { flex-direction:column; gap:10px; text-align:center; padding: 18px 28px; }
+    .hero, .features-section, .how-section, .demo-section, .video-section, .testimonials-section, .support-section, .cta-section { padding-left:20px; padding-right:20px; }
+    .verse-section { padding: 60px 0; }
+    .verse-ticker-item { font-size: 0.95rem; }
+  }
+
+  /* ── Very small phones ── */
+  @media (max-width:380px) {
+    h1 { font-size: 2.1rem; }
+    .hero-eyebrow { font-size: 0.62rem; letter-spacing: 0.25em; }
+    .step-circle { width: 68px; height: 68px; font-size: 1.5rem; }
+    .support-card h3 { font-size: 1.7rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="https://mypersonal-bible-app.onrender.com" class="nav-logo" target="_blank">
+    <img src="https://mypersonal-bible-app.onrender.com/static/img/app-icon.jpg" alt="MyPersonalBible"/>
+    <span class="nav-logo-text">MyPersonal Bible</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#features">Features</a></li>
+    <li><a href="#how-it-works">How It Works</a></li>
+    <li><a href="#demo">Demo</a></li>
+    <li><a href="#videos">Videos</a></li>
+    <li><a href="#support">Support</a></li>
+    <li><a href="https://mypersonal-bible-app.onrender.com" target="_blank" class="nav-cta">Open App</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-cross"></div>
+  <div class="hero-lines">
+    <span></span><span></span><span></span>
+  </div>
+
+  <div class="hero-text">
+    <div class="hero-eyebrow">Your Sacred Companion</div>
+    <h1>Draw <em>Near</em> to God Through His <em>Living</em> Word</h1>
+    <p class="hero-verse">
+      "Your word is a lamp to my feet and a light to my path."<br/>
+      <strong>— Psalm 119:105</strong>
+    </p>
+    <div class="hero-btns">
+      <a href="https://mypersonal-bible-app.onrender.com" target="_blank" class="btn-primary">
+        ✝ Begin Reading
+      </a>
+      <a href="#features" class="btn-secondary">
+        Explore Features →
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">66</div>
+        <div class="stat-label">Books of the Bible</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">31K+</div>
+        <div class="stat-label">Verses Available</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">∞</div>
+        <div class="stat-label">Daily Inspiration</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-device">
+    <div class="hero-devices-stage">
+
+      <!-- LAPTOP FRAME — set src to your desktop screenshot path -->
+      <div class="hlaptop-wrap">
+        <div class="hlaptop-lid">
+          <div class="hlaptop-cam"></div>
+
+          <div class="hlaptop-screen-wrap">
+            <img class="hlaptop-screen"
+                 src="img/desktop.png"
+                 alt="MyPersonalBible on Desktop"
+                 onerror="this.style.background='#f2e8d0';this.style.display='block';this.removeAttribute('src')"/>
+          </div>
+        </div>
+        <div class="hlaptop-hinge"></div>
+        <div class="hlaptop-base"><div class="hlaptop-trackpad"></div></div>
+        <div class="hlaptop-feet"><div class="hlaptop-foot"></div><div class="hlaptop-foot"></div></div>
+      </div>
+
+      <!-- PHONE FRAME — set src to your mobile screenshot path (Android-style) -->
+      <div class="hphone-wrap">
+        <div class="hphone-frame">
+          <div class="hphone-btn hphone-btn-vol-up"></div>
+          <div class="hphone-btn hphone-btn-vol-down"></div>
+          <div class="hphone-btn hphone-btn-power"></div>
+
+          <div class="hphone-screen-wrap">
+            <img class="hphone-screen"
+                 src="img/mobile.png"
+                 alt="MyPersonalBible on Android"
+                 onerror="this.style.background='#f2e8d0';this.style.display='block';this.removeAttribute('src')"/>
+            <div class="hphone-island"></div>
+            <div class="hphone-home"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features-section" id="features">
+  <div class="section-header">
+    <span class="section-eyebrow">Everything You Need</span>
+    <h2 class="section-title">Crafted for <em>Deep</em> Scripture Study</h2>
+    <p class="section-sub">Every feature thoughtfully designed to bring you closer to God's word, every single day.</p>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card reveal">
+      <div class="feature-icon">📅</div>
+      <div class="feature-name">Daily Verse</div>
+      <p class="feature-desc">A freshly curated, inspiring verse greets you every morning — a gentle reminder of God's living presence in each new day.</p>
+      <span class="feature-tag">Every Day</span>
+    </div>
+    <div class="feature-card reveal reveal-delay-1">
+      <div class="feature-icon">🔍</div>
+      <div class="feature-name">Scripture Search</div>
+      <p class="feature-desc">Instantly find any verse by keyword or phrase across all 66 books. Powerful, precise, and immediate — like having a concordance in your pocket.</p>
+      <span class="feature-tag">31,000+ Verses</span>
+    </div>
+    <div class="feature-card reveal reveal-delay-2">
+      <div class="feature-icon">🔖</div>
+      <div class="feature-name">Bookmarks</div>
+      <p class="feature-desc">Save verses that speak to your heart and return to them effortlessly. Build your personal collection of life-changing scripture.</p>
+      <span class="feature-tag">Personal Library</span>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon">✨</div>
+      <div class="feature-name">Verse Highlighting</div>
+      <p class="feature-desc">Mark and colour-code passages that move you. Your Bible, personalized with your own annotations and discoveries.</p>
+      <span class="feature-tag">Visual Study</span>
+    </div>
+    <div class="feature-card reveal reveal-delay-1">
+      <div class="feature-icon">🎧</div>
+      <div class="feature-name">Audio Bible</div>
+      <p class="feature-desc">Listen to the Word spoken aloud. Stream or download MP3s so you can experience Scripture during commutes, workouts, or quiet time.</p>
+      <span class="feature-tag">Download & Stream</span>
+    </div>
+    <div class="feature-card reveal reveal-delay-2">
+      <div class="feature-icon">📊</div>
+      <div class="feature-name">Reading Progress</div>
+      <p class="feature-desc">Track your journey through the Bible. See chapters completed, maintain reading streaks, and celebrate milestones in your walk with God.</p>
+      <span class="feature-tag">Stay Consistent</span>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon">☁️</div>
+      <div class="feature-name">Cloud Sync</div>
+      <p class="feature-desc">Sign in with Google and your bookmarks, highlights, and progress follow you everywhere — seamlessly synchronized across all your devices.</p>
+      <span class="feature-tag">Google Sign-In</span>
+    </div>
+    <div class="feature-card reveal reveal-delay-1">
+      <div class="feature-icon">📖</div>
+      <div class="feature-name">Quick Verse Lookup</div>
+      <p class="feature-desc">Jump directly to any verse or range instantly. Psalm 23:1, John 3:16–18, Romans 8:28 — arrive in one tap, every time.</p>
+      <span class="feature-tag">Instant Navigation</span>
+    </div>
+    <div class="feature-card reveal reveal-delay-2">
+      <div class="feature-icon">🗂️</div>
+      <div class="feature-name">Bible Library</div>
+      <p class="feature-desc">Browse all 66 books from Genesis to Revelation with chapter counts, organized clearly for both Old and New Testament exploration.</p>
+      <span class="feature-tag">Complete Canon</span>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how-it-works">
+  <div class="section-header">
+    <span class="section-eyebrow">Simple & Intuitive</span>
+    <h2 class="section-title" style="color:var(--brown);">Begin Your <em>Journey</em> in Minutes</h2>
+    <p class="section-sub" style="color:var(--brown-light);">No lengthy setup. No barriers. Just you and the Word of God.</p>
+  </div>
+  <div class="how-steps">
+    <div class="step-item reveal">
+      <div class="step-circle">
+        🌐
+        <div class="step-num">1</div>
+      </div>
+      <div class="step-label">Visit the App</div>
+      <p class="step-desc">Open MyPersonalBible in any browser on any device — no installation required for the full experience.</p>
+    </div>
+    <div class="step-item reveal reveal-delay-1">
+      <div class="step-circle">
+        🔑
+        <div class="step-num">2</div>
+      </div>
+      <div class="step-label">Sign In</div>
+      <p class="step-desc">Use your Google account for one-click sign-in and unlock cloud sync across all your devices.</p>
+    </div>
+    <div class="step-item reveal reveal-delay-2">
+      <div class="step-circle">
+        📖
+        <div class="step-num">3</div>
+      </div>
+      <div class="step-label">Start Reading</div>
+      <p class="step-desc">Browse by book, search by keyword, or open today's daily verse — dive straight into the Word.</p>
+    </div>
+    <div class="step-item reveal reveal-delay-3">
+      <div class="step-circle">
+        🔖
+        <div class="step-num">4</div>
+      </div>
+      <div class="step-label">Save & Reflect</div>
+      <p class="step-desc">Bookmark, highlight, and track your progress as you build a deeper, more personal relationship with Scripture.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DEMO SECTION -->
+<section class="demo-section" id="demo">
+  <div class="section-header">
+    <span class="section-eyebrow">Live Preview</span>
+    <h2 class="section-title" style="color:var(--brown);">See the App <em>In Action</em></h2>
+    <p class="section-sub" style="color:var(--brown-light);">Explore what awaits you inside MyPersonalBible.</p>
+  </div>
+
+  <div class="demo-tabs">
+    <button class="demo-tab active" onclick="showTab('daily')">Daily Verse</button>
+    <button class="demo-tab" onclick="showTab('search')">Scripture Search</button>
+    <button class="demo-tab" onclick="showTab('audio')">Audio Bible</button>
+  </div>
+
+  <!-- Daily Verse Panel -->
+  <div class="demo-panel active" id="panel-daily">
+    <div class="demo-mockup">
+      <div class="demo-browser">
+        <div class="browser-bar">
+          <div class="browser-dots"><span></span><span></span><span></span></div>
+          <div class="browser-url">mypersonal-bible-app.onrender.com</div>
+        </div>
+
+        <img class="demo-screenshot"
+             src="img/daily_verse.png"
+             alt="Daily Verse feature screenshot"
+             onerror="this.style.minHeight='280px';this.style.display='block';this.removeAttribute('src')"/>
+      </div>
+    </div>
+    <div class="demo-info">
+      <h3>A New Verse Every <em>Morning</em></h3>
+      <p>Start your day grounded in Scripture. MyPersonalBible surfaces a daily verse to inspire, encourage, and set the tone for your walk with God — without you having to search for it.</p>
+      <ul class="demo-feature-list">
+        <li><span class="dfl-icon">📅</span> Fresh verse curated each day automatically</li>
+        <li><span class="dfl-icon">🔖</span> One-tap bookmark to save for later</li>
+        <li><span class="dfl-icon">✨</span> Highlight and annotate directly on the verse</li>
+        <li><span class="dfl-icon">📤</span> Share with friends and family instantly</li>
+      </ul>
+      <a href="https://mypersonal-bible-app.onrender.com/#daily" target="_blank" class="btn-primary">View Today's Verse →</a>
+    </div>
+  </div>
+
+  <!-- Search Panel -->
+  <div class="demo-panel" id="panel-search">
+    <div class="demo-mockup">
+      <div class="demo-browser">
+        <div class="browser-bar">
+          <div class="browser-dots"><span></span><span></span><span></span></div>
+          <div class="browser-url">mypersonal-bible-app.onrender.com/#search</div>
+        </div>
+
+        <img class="demo-screenshot"
+             src="img/search.webp"
+             alt="Scripture Search feature screenshot"
+             onerror="this.style.minHeight='280px';this.style.display='block';this.removeAttribute('src')"/>
+      </div>
+    </div>
+    <div class="demo-info">
+      <h3>Find Any Verse <em>Instantly</em></h3>
+      <p>Whether you remember a keyword, a theme, or a partial phrase — our full-text search surfaces every relevant passage across all 66 books of the Bible, instantly.</p>
+      <ul class="demo-feature-list">
+        <li><span class="dfl-icon">⚡</span> Real-time results as you type</li>
+        <li><span class="dfl-icon">📖</span> Search across all 31,000+ verses</li>
+        <li><span class="dfl-icon">🎯</span> Jump directly to any result's full chapter</li>
+        <li><span class="dfl-icon">🔖</span> Bookmark search results immediately</li>
+      </ul>
+      <a href="https://mypersonal-bible-app.onrender.com/#search" target="_blank" class="btn-primary">Try the Search →</a>
+    </div>
+  </div>
+
+  <!-- Audio Panel -->
+  <div class="demo-panel" id="panel-audio">
+    <div class="demo-mockup">
+      <div class="demo-browser">
+        <div class="browser-bar">
+          <div class="browser-dots"><span></span><span></span><span></span></div>
+          <div class="browser-url">mypersonal-bible-app.onrender.com</div>
+        </div>
+
+        <img class="demo-screenshot"
+             src="img/audio.webp"
+             alt="Audio Bible feature screenshot"
+             onerror="this.style.minHeight='280px';this.style.display='block';this.removeAttribute('src')"/>
+      </div>
+    </div>
+    <div class="demo-info">
+      <h3>Hear the Word <em>Come Alive</em></h3>
+      <p>The Audio Bible transforms your commute, workout, or evening walk into sacred time. Stream any chapter or download MP3s to listen offline — wherever life takes you.</p>
+      <ul class="demo-feature-list">
+        <li><span class="dfl-icon">🎵</span> Stream any chapter instantly</li>
+        <li><span class="dfl-icon">📥</span> Download MP3s for offline listening</li>
+        <li><span class="dfl-icon">📱</span> Works on any device</li>
+        <li><span class="dfl-icon">🔄</span> Syncs your listening progress</li>
+      </ul>
+      <a href="https://mypersonal-bible-app.onrender.com" target="_blank" class="btn-primary">Listen Now →</a>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO MODAL OVERLAY -->
+<div class="video-modal-overlay" id="videoModal">
+  <div class="video-modal-box">
+    <button class="video-modal-close" onclick="closeVideoModal()" title="Close">✕</button>
+    <div id="videoModalContent"></div>
+    <div class="video-modal-title" id="videoModalTitle"></div>
+  </div>
+</div>
+
+<!-- VIDEO SECTION -->
+<section class="video-section" id="videos">
+  <div class="section-header" style="position:relative;z-index:1">
+    <span class="section-eyebrow">Tutorials & Walkthrough</span>
+    <h2 class="section-title">Watch & <em>Learn</em></h2>
+    <p class="section-sub">See every feature in action before you even open the app.</p>
+  </div>
+  <div class="video-grid" style="position:relative;z-index:1">
+
+
+    <div class="video-card reveal"
+         data-video="vid/reading_bible.mp4"
+         data-type="mp4"
+         data-title="Reading the Bible"
+         onclick="openVideoModal(this)">
+      <div class="video-thumb video-thumb-1">
+        <div class="video-badge">Getting Started</div>
+        <div class="play-btn">▶</div>
+      </div>
+      <div class="video-info">
+        <div class="video-title">Reading the Bible</div>
+        <div class="video-desc">A complete walkthrough of browsing, navigating books, and reading chapters in MyPersonalBible.</div>
+        <div class="video-duration">⏱ ~3 min</div>
+      </div>
+    </div>
+
+
+    <div class="video-card reveal reveal-delay-1"
+         data-video="vid/audio_bible.mp4"
+         data-type="mp4"
+         data-title="Audio Bible Guide"
+         onclick="openVideoModal(this)">
+      <div class="video-thumb video-thumb-2">
+        <div class="video-badge">Feature Spotlight</div>
+        <div class="play-btn">▶</div>
+      </div>
+      <div class="video-info">
+        <div class="video-title">Audio Bible Guide</div>
+        <div class="video-desc">How to stream and download the Audio Bible, including offline access and playback controls.</div>
+        <div class="video-duration">⏱ ~2 min</div>
+      </div>
+    </div>
+
+
+    <div class="video-card reveal reveal-delay-2"
+         data-video="vid/google_sync.mp4"
+         data-type="mp4"
+         data-title="Sync Across Devices"
+         onclick="openVideoModal(this)">
+      <div class="video-thumb video-thumb-3">
+        <div class="video-badge">Cloud Sync</div>
+        <div class="play-btn">▶</div>
+      </div>
+      <div class="video-info">
+        <div class="video-title">Sync Across Devices</div>
+        <div class="video-desc">Sign in with Google and watch your bookmarks, highlights, and progress follow you everywhere.</div>
+        <div class="video-duration">⏱ ~2 min</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- VERSE TICKER -->
+<section class="verse-section">
+  <div class="verse-ticker" id="ticker">
+    <span class="verse-ticker-item">"The Lord is my shepherd; I shall not want." — Psalm 23:1</span>
+    <span class="verse-ticker-item">"In the beginning was the Word." — John 1:1</span>
+    <span class="verse-ticker-item">"I am the way, the truth, and the life." — John 14:6</span>
+    <span class="verse-ticker-item">"Be still and know that I am God." — Psalm 46:10</span>
+    <span class="verse-ticker-item">"Trust in the Lord with all your heart." — Proverbs 3:5</span>
+    <span class="verse-ticker-item">"For God so loved the world..." — John 3:16</span>
+    <!-- duplicate for seamless loop -->
+    <span class="verse-ticker-item">"The Lord is my shepherd; I shall not want." — Psalm 23:1</span>
+    <span class="verse-ticker-item">"In the beginning was the Word." — John 1:1</span>
+    <span class="verse-ticker-item">"I am the way, the truth, and the life." — John 14:6</span>
+    <span class="verse-ticker-item">"Be still and know that I am God." — Psalm 46:10</span>
+    <span class="verse-ticker-item">"Trust in the Lord with all your heart." — Proverbs 3:5</span>
+    <span class="verse-ticker-item">"For God so loved the world..." — John 3:16</span>
+  </div>
+</section>
+
+<!-- TESTIMONIALS
+<section class="testimonials-section">
+  <div class="section-header">
+    <span class="section-eyebrow">From the Community</span>
+    <h2 class="section-title" style="color:var(--brown);">Words from <em>Fellow Believers</em></h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card reveal">
+      <span class="tc-quote">"</span>
+      <p class="tc-text">MyPersonalBible has completely transformed my morning devotions. The daily verse greets me each day and the audio feature means I can listen while getting ready for work.</p>
+      <div class="tc-author">
+        <div class="tc-avatar">A</div>
+        <div>
+          <div class="tc-name">Community Member</div>
+          <div class="tc-role">Lagos, Nigeria</div>
+          <div class="tc-stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-1">
+      <span class="tc-quote">"</span>
+      <p class="tc-text">The search feature is incredible — I can find any verse in seconds. As a Sunday school teacher, this has become my most used tool for lesson preparation.</p>
+      <div class="tc-author">
+        <div class="tc-avatar">E</div>
+        <div>
+          <div class="tc-name">Community Member</div>
+          <div class="tc-role">Akure, Nigeria</div>
+          <div class="tc-stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-2">
+      <span class="tc-quote">"</span>
+      <p class="tc-text">Cloud sync is a game changer. My bookmarks and highlights are always there whether I'm on my phone or my laptop. It truly feels like my personal Bible.</p>
+      <div class="tc-author">
+        <div class="tc-avatar">G</div>
+        <div>
+          <div class="tc-name">Community Member</div>
+          <div class="tc-role">Lagos, Nigeria</div>
+          <div class="tc-stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- SUPPORT SECTION -->
+<section class="support-section" id="support">
+  <div class="support-inner">
+    <div class="support-text reveal">
+      <span class="section-eyebrow">Support the Mission</span>
+      <h2 class="support-title">Help Keep the Word <em>Free</em> for Everyone</h2>
+      <p>MyPersonalBible is completely free — no subscriptions, no paywalls, no ads. It's built and maintained with love for the body of Christ. If it has blessed you, consider blessing others by supporting its growth.</p>
+      <p>Your support helps cover server costs, audio hosting, ongoing development, and brings the Word to more people across Africa and beyond.</p>
+      <div class="support-ways">
+        <div class="support-way">
+          <div class="support-way-icon">🙏</div>
+          <div>
+            <div class="support-way-label">Pray for Us</div>
+            <div class="support-way-desc">Lift up the ministry in prayer — that it reaches hearts and glorifies God.</div>
+          </div>
+        </div>
+        <div class="support-way">
+          <div class="support-way-icon">📢</div>
+          <div>
+            <div class="support-way-label">Spread the Word</div>
+            <div class="support-way-desc">Share MyPersonalBible with your church, family, and friends on social media.</div>
+          </div>
+        </div>
+        <div class="support-way">
+          <div class="support-way-icon">💛</div>
+          <div>
+            <div class="support-way-label">Give a Gift</div>
+            <div class="support-way-desc">A financial contribution, however small, keeps the servers running and the Word flowing.</div>
+          </div>
+        </div>
+        <div class="support-way">
+          <div class="support-way-icon">💬</div>
+          <div>
+            <div class="support-way-label">Send Feedback</div>
+            <div class="support-way-desc">Your ideas, bug reports, and encouragement help us build a better Bible experience.</div>
+          </div>
+        </div>
+      </div>
+      <div class="support-btns">
+        <a href="https://mypersonal-bible-app.onrender.com/contact?support=true" target="_blank" class="btn-primary">💛 Support MyPersonalBible</a>
+        <a href="https://mypersonal-bible-app.onrender.com/contact" target="_blank" class="btn-secondary">Send Feedback →</a>
+      </div>
+    </div>
+
+    <div class="support-card reveal reveal-delay-1">
+      <span class="support-card-icon">✝</span>
+      <h3>Built for <em>His Glory</em></h3>
+      <p>Every line of code, every verse served, every audio chapter streamed — all for the glory of God and the growth of His kingdom.</p>
+      <a href="https://mypersonal-bible-app.onrender.com/contact?support=true" target="_blank" class="btn-primary" style="justify-content:center;width:100%;margin-bottom:20px;">
+        💛 Support the App
+      </a>
+      <a href="https://mypersonal-bible-app.onrender.com" target="_blank" class="btn-secondary" style="justify-content:center;width:100%;">
+        ✝ Open MyPersonalBible
+      </a>
+      <div class="support-card-verse">
+        "Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver."
+        <span>— 2 Corinthians 9:7</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="section-divider">
+      <span class="divider-cross">✝</span>
+    </div>
+    <h2 style="margin-top:32px">Ready to <em>Begin</em>?</h2>
+    <p>Your personal Bible awaits — free, beautiful, and always with you. Start reading, listening, and growing in God's Word today.</p>
+    <div class="cta-btns">
+      <a href="https://mypersonal-bible-app.onrender.com" target="_blank" class="btn-primary">✝ Open MyPersonalBible</a>
+      <a href="https://mypersonal-bible-app.onrender.com/install" target="_blank" class="btn-secondary">⬇ Download APK</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <div class="fb-logo">
+      <img src="https://mypersonal-bible-app.onrender.com/static/img/app-icon.jpg" alt="MyPersonalBible"/>
+      <span class="fb-name">MyPersonalBible</span>
+    </div>
+    <p>Draw near to God through His living Word. Free, beautiful, and built for believers.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Explore</h4>
+    <ul>
+      <li><a href="https://mypersonal-bible-app.onrender.com/#daily" target="_blank">Daily Verse</a></li>
+      <li><a href="https://mypersonal-bible-app.onrender.com/#search" target="_blank">Search Scripture</a></li>
+      <li><a href="https://mypersonal-bible-app.onrender.com/#books" target="_blank">Browse Books</a></li>
+      <li><a href="https://mypersonal-bible-app.onrender.com/install" target="_blank">Download APK</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Features</h4>
+    <ul>
+      <li><a href="https://mypersonal-bible-app.onrender.com" target="_blank">Bookmarks</a></li>
+      <li><a href="https://mypersonal-bible-app.onrender.com" target="_blank">Highlighting</a></li>
+      <li><a href="https://mypersonal-bible-app.onrender.com" target="_blank">Audio Bible</a></li>
+      <li><a href="https://mypersonal-bible-app.onrender.com" target="_blank">Cloud Sync</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Account</h4>
+    <ul>
+      <li><a href="https://mypersonal-bible-app.onrender.com/login/google" target="_blank">Sign In</a></li>
+      <li><a href="https://mypersonal-bible-app.onrender.com/contact" target="_blank">Contact</a></li>
+      <li><a href="https://mypersonal-bible-app.onrender.com/contact?support=true" target="_blank">Support Us</a></li>
+      <li><a href="https://mypersonal-bible-app.onrender.com" target="_blank">About</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Legal</h4>
+    <ul>
+      <li><a href="#privacy.html" target="_blank">Privacy Policy</a></li>
+      <li><a href="#terms.html" target="_blank">Terms of Use</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span>© 2026 MyPersonalBible. All rights reserved. · <a href="/privacy.html" target="_blank" class="fbl">Privacy Policy</a></span>
+  <span class="fbc">✝ Soli Deo Gloria</span>
+</div>
+
+<script>
+  // Nav scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinksEl = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinksEl.classList.toggle('open');
+    navToggle.classList.toggle('open', isOpen);
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  navLinksEl.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navLinksEl.classList.remove('open');
+      navToggle.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.15 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Lighter-weight motion: pause continuous/looping animations while their
+  // section is off-screen so they don't burn CPU/battery in the background.
+  const loopingSections = document.querySelectorAll('.hero, .verse-section');
+  const motionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => { e.target.classList.toggle('anim-paused', !e.isIntersecting); });
+  }, { threshold: 0 });
+  loopingSections.forEach(el => motionObserver.observe(el));
+
+  // Demo tabs
+  function showTab(id) {
+    document.querySelectorAll('.demo-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.demo-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('panel-' + id).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  // ── VIDEO MODAL ──
+  function openVideoModal(card) {
+    const url   = card.getAttribute('data-video');
+    const type  = card.getAttribute('data-type') || 'youtube';
+    const title = card.getAttribute('data-title') || '';
+    const content = document.getElementById('videoModalContent');
+    const modal   = document.getElementById('videoModal');
+
+    // Don't open if no URL set yet
+    if (!url || url.startsWith('YOUR_')) {
+      alert('Video URL not set yet. Please add your video URL to the data-video attribute on this card.');
+      return;
+    }
+
+    if (type === 'youtube') {
+      // Support full YouTube URLs or already-embed URLs
+      let embedUrl = url;
+      if (url.includes('youtube.com/watch')) {
+        const id = new URL(url).searchParams.get('v');
+        embedUrl = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
+      } else if (url.includes('youtu.be/')) {
+        const id = url.split('youtu.be/')[1].split('?')[0];
+        embedUrl = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
+      } else if (url.includes('youtube.com/embed/')) {
+        embedUrl = url + (url.includes('?') ? '&' : '?') + 'autoplay=1';
+      }
+      content.innerHTML = `<iframe src="${embedUrl}" allowfullscreen allow="autoplay; encrypted-media"></iframe>`;
+    } else {
+      content.innerHTML = `<video src="${url}" controls autoplay playsinline></video>`;
+    }
+
+    document.getElementById('videoModalTitle').textContent = title;
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeVideoModal() {
+    const modal = document.getElementById('videoModal');
+    modal.classList.remove('open');
+    document.getElementById('videoModalContent').innerHTML = '';
+    document.body.style.overflow = '';
+  }
+
+  // Close modal on overlay click
+  document.getElementById('videoModal').addEventListener('click', function(e) {
+    if (e.target === this) closeVideoModal();
+  });
+
+  // Close modal on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeVideoModal();
+  });
+</script>
+</body>
+</html>
