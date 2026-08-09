@@ -347,34 +347,38 @@
     z-index:0;
   }
 
-  /* LAPTOP — realistic aluminum-style device frame, built the same way as the phone below */
+  /* LAPTOP — realistic aluminum-body laptop frame */
   .hlaptop-wrap {
     position:absolute;
     bottom:0; left:0;
     z-index:1;
-    width:320px;
-    filter: drop-shadow(0 26px 50px rgba(26,15,0,0.45));
+    filter: drop-shadow(0 26px 50px rgba(26,15,0,0.4));
   }
   .hlaptop-lid {
-    width:100%;
-    background: linear-gradient(160deg, #6e6f71 0%, #3a3b3d 48%, #1c1c1e 100%);
-    border-radius:11px 11px 3px 3px;
-    padding:9px 9px 11px;
+    position:relative;
+    width:340px;
+    background: linear-gradient(160deg, #55565a 0%, #2b2c2e 45%, #131315 100%);
+    border-radius:16px 16px 3px 3px;
+    padding:9px 9px 0;
     box-shadow:
-      inset 0 0 0 1.5px rgba(255,255,255,0.14),
-      inset 0 0 10px rgba(255,255,255,0.05),
-      0 0 0 1px rgba(0,0,0,0.55);
+      inset 0 0 0 1.5px rgba(255,255,255,0.12),
+      inset 0 0 8px rgba(255,255,255,0.05),
+      0 0 0 1px rgba(0,0,0,0.5);
+    overflow:hidden;
   }
   .hlaptop-cam {
+    position:absolute;
+    top:4px; left:50%;
+    transform:translateX(-50%);
     width:5px; height:5px;
-    background:#050505;
-    border:1px solid rgba(255,255,255,0.18);
+    background:#000;
     border-radius:50%;
-    margin:0 auto 7px;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.06), inset 0 0 0 1px rgba(255,255,255,0.1);
+    z-index:6;
   }
   .hlaptop-screen-wrap {
     position:relative;
-    border-radius:3px;
+    border-radius:6px 6px 0 0;
     overflow:hidden;
     background:#000;
     box-shadow: inset 0 0 0 1.5px #050505;
@@ -382,59 +386,57 @@
   /* ── DESKTOP SCREENSHOT — replace src with your image path ── */
   .hlaptop-screen {
     width:100%;
-    height:172px;
+    height:188px;
     display:block;
     object-fit:cover;
     object-position:top;
   }
-  /* subtle glass glare, matching the phone screen treatment */
   .hlaptop-screen-wrap::after {
     content:'';
     position:absolute;
     inset:0;
-    background: linear-gradient(115deg, rgba(255,255,255,0.14) 0%, transparent 25%);
+    background: linear-gradient(115deg, rgba(255,255,255,0.10) 0%, transparent 20%);
     pointer-events:none;
+    z-index:5;
   }
   .hlaptop-hinge {
-    width:100%;
-    height:7px;
-    background:linear-gradient(to bottom, #4c4d4f 0%, #232426 55%, #141415 100%);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 1px 4px rgba(0,0,0,0.4);
+    height:6px;
+    background: linear-gradient(to bottom, #3a3b3d, #131315);
   }
-  /* Base = the keyboard deck, tapered like a real laptop base viewed from the front */
   .hlaptop-base {
-    width:100%;
-    height:14px;
-    background: linear-gradient(to bottom, #86878a 0%, #55565a 45%, #3a3b3d 100%);
-    border-radius:0 0 10px 10px;
-    clip-path: polygon(2% 0, 98% 0, 100% 100%, 0 100%);
-    box-shadow: 0 6px 14px rgba(0,0,0,0.35);
-    display:flex; align-items:flex-start; justify-content:center;
     position:relative;
+    width:356px;
+    margin-left:-8px;
+    height:15px;
+    background: linear-gradient(160deg, #6a6b6f 0%, #3a3b3d 55%, #1c1c1e 100%);
+    border-radius:0 0 11px 11px;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.18),
+      inset 0 0 0 1px rgba(0,0,0,0.3),
+      0 12px 26px rgba(26,15,0,0.35);
+    display:flex; align-items:flex-start; justify-content:center;
   }
-  /* implied keyboard: a faint row of key seams across the deck */
   .hlaptop-base::before {
     content:'';
     position:absolute;
-    top:3px; left:14%; right:14%; height:4px;
-    background-image: repeating-linear-gradient(90deg, rgba(0,0,0,0.22) 0 2px, transparent 2px 6px);
-    opacity:0.55;
+    top:0; left:50%;
+    transform:translateX(-50%);
+    width:46px; height:4px;
+    background:rgba(0,0,0,0.28);
+    border-radius:0 0 7px 7px;
   }
   .hlaptop-trackpad {
-    margin-top:8px;
-    width:56px; height:6px;
-    background:rgba(0,0,0,0.18);
-    border:1px solid rgba(0,0,0,0.25);
+    margin-top:3px;
+    width:74px; height:8px;
+    background: linear-gradient(160deg, rgba(255,255,255,0.2), rgba(255,255,255,0.04));
+    border:1px solid rgba(255,255,255,0.16);
     border-radius:3px;
   }
-  .hlaptop-feet {
-    display:flex; justify-content:space-between; padding:0 20px;
-  }
-  .hlaptop-foot {
-    width:28px; height:4px;
-    background:rgba(26,15,0,0.85);
-    border-radius:0 0 4px 4px;
-    box-shadow:0 3px 8px rgba(0,0,0,0.35);
+  .hlaptop-shadow {
+    width:300px;
+    height:12px;
+    margin:6px auto 0;
+    background: radial-gradient(ellipse at center, rgba(26,15,0,0.28) 0%, rgba(26,15,0,0) 72%);
   }
 
   /* PHONE — realistic Android smartphone frame */
@@ -938,7 +940,7 @@
     position:relative;
     z-index:1;
   }
-  /* ── .support-text {} ── */
+  /* .support-text {} */
   .support-text .section-eyebrow { color:var(--gold-dark); }
   .support-title {
     font-family:'Cormorant Garamond',serif;
@@ -1565,7 +1567,6 @@
       <div class="hlaptop-wrap">
         <div class="hlaptop-lid">
           <div class="hlaptop-cam"></div>
-
           <div class="hlaptop-screen-wrap">
             <img class="hlaptop-screen"
                  src="img/desktop.png"
@@ -1575,7 +1576,7 @@
         </div>
         <div class="hlaptop-hinge"></div>
         <div class="hlaptop-base"><div class="hlaptop-trackpad"></div></div>
-        <div class="hlaptop-feet"><div class="hlaptop-foot"></div><div class="hlaptop-foot"></div></div>
+        <div class="hlaptop-shadow"></div>
       </div>
 
       <!-- PHONE FRAME — set src to your mobile screenshot path (Android-style) -->
@@ -2060,13 +2061,13 @@
   <div class="footer-col">
     <h4>Legal</h4>
     <ul>
-      <li><a href="/privacy.html" target="_blank">Privacy Policy</a></li>
-      <li><a href="#" target="_blank">Terms of Use</a></li>
+      <li><a href="https://mypersonal-bible-app.onrender.com/privacy" target="_blank">Privacy Policy</a></li>
+      <li><a href="https://mypersonal-bible-app.onrender.com/terms" target="_blank">Terms of Use</a></li>
     </ul>
   </div>
 </footer>
 <div class="footer-bottom">
-  <span>© 2026 MyPersonalBible. All rights reserved. · <a href="/privacy.html" target="_blank" class="fbl">Privacy Policy</a></span>
+  <span>© 2026 MyPersonalBible. All rights reserved. · <a href="https://mypersonal-bible-app.onrender.com/privacy" target="_blank" class="fbl">Privacy Policy</a></span>
   <span class="fbc">✝ Soli Deo Gloria</span>
 </div>
 

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Terms of Use — MyPersonal Bible</title>
+<meta name="description" content="Terms of Use for MyPersonal Bible — the rules and guidelines for using our Bible reading, search, and audio app."/>
+<meta name="robots" content="index, follow"/>
+<link rel="icon" type="image/jpeg" href="https://mypersonal-bible-app.onrender.com/static/img/app-icon.jpg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --cream: #f5f1e6;
+    --white: #ffffff;
+    --sage: #75895a;
+    --sage-light: #a3b485;
+    --sage-dark: #4c6138;
+    --ink: #232a1b;
+    --ink-soft: #52604a;
+    --border: rgba(117,137,90,0.22);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Lato', sans-serif;
+    line-height: 1.7;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .brand img { width: 32px; height: 32px; border-radius: 8px; }
+  .brand span {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: var(--ink);
+  }
+  .back-link {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--sage-dark);
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 1px solid var(--sage);
+    border-radius: 6px;
+    transition: all 0.2s;
+  }
+  .back-link:hover { background: var(--sage); color: var(--white); }
+
+  /* ── HERO ── */
+  .page-hero {
+    padding: 56px 24px 40px;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(117,137,90,0.08), transparent);
+  }
+  .page-hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: clamp(2.2rem, 5vw, 3rem);
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+  .page-hero p {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+  .page-hero .updated {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--sage-dark);
+    background: rgba(117,137,90,0.12);
+    padding: 6px 14px;
+    border-radius: 20px;
+  }
+
+  /* ── LAYOUT ── */
+  .wrap {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 24px 100px;
+  }
+  .card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 44px 48px;
+    box-shadow: 0 12px 40px rgba(35,42,27,0.06);
+  }
+
+  /* ── TOC ── */
+  .toc {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-bottom: 40px;
+  }
+  .toc h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+    color: var(--ink);
+  }
+  .toc ol {
+    columns: 2;
+    column-gap: 32px;
+    padding-left: 20px;
+    font-size: 0.88rem;
+  }
+  .toc li { margin-bottom: 8px; break-inside: avoid; }
+  .toc a { color: var(--sage-dark); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+
+  /* ── CONTENT ── */
+  section.policy-section {
+    margin-bottom: 36px;
+    scroll-margin-top: 90px;
+  }
+  section.policy-section:last-child { margin-bottom: 0; }
+  h2.sec-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 1.45rem;
+    color: var(--sage-dark);
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .policy-section p {
+    font-size: 0.96rem;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+  .policy-section ul {
+    margin: 0 0 14px 22px;
+    font-size: 0.96rem;
+  }
+  .policy-section ul li { margin-bottom: 8px; }
+  .policy-section strong { color: var(--ink); }
+  .note {
+    background: rgba(117,137,90,0.08);
+    border-left: 3px solid var(--sage);
+    border-radius: 6px;
+    padding: 14px 18px;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    margin: 16px 0;
+  }
+  a.inline-link { color: var(--sage-dark); font-weight: 700; text-decoration: none; }
+  a.inline-link:hover { text-decoration: underline; }
+
+  footer.page-footer {
+    text-align: center;
+    padding: 40px 24px 60px;
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+  }
+  footer.page-footer a { color: var(--sage-dark); text-decoration: none; }
+
+  @media (max-width: 640px) {
+    header { padding: 14px 18px; }
+    .brand span { font-size: 1rem; }
+    .card { padding: 30px 22px; }
+    .toc ol { columns: 1; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="/" class="brand">
+    <img src="/static/img/app-icon.jpg" alt="MyPersonal Bible"/>
+    <span>MyPersonal Bible</span>
+  </a>
+  <a href="/" class="back-link">← Back to App</a>
+</header>
+
+<div class="page-hero">
+  <h1>Terms of Use</h1>
+  <p>The rules and guidelines for using MyPersonal Bible.</p>
+  <span class="updated">Effective Date: August 8, 2026</span>
+</div>
+
+<div class="wrap">
+  <div class="card">
+
+    <nav class="toc" aria-label="Table of contents">
+      <h2>Contents</h2>
+      <ol>
+        <li><a href="#acceptance">Acceptance of Terms</a></li>
+        <li><a href="#the-service">Description of the Service</a></li>
+        <li><a href="#eligibility">Eligibility</a></li>
+        <li><a href="#accounts">Accounts &amp; Google Sign-In</a></li>
+        <li><a href="#acceptable-use">Acceptable Use</a></li>
+        <li><a href="#user-content">Your Content</a></li>
+        <li><a href="#intellectual-property">Intellectual Property</a></li>
+        <li><a href="#donations">Donations &amp; Support</a></li>
+        <li><a href="#third-party">Third-Party Services</a></li>
+        <li><a href="#availability">Availability &amp; Changes to the Service</a></li>
+        <li><a href="#disclaimer">Disclaimer of Warranties</a></li>
+        <li><a href="#liability">Limitation of Liability</a></li>
+        <li><a href="#termination">Termination</a></li>
+        <li><a href="#governing-law">Governing Law</a></li>
+        <li><a href="#changes">Changes to These Terms</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ol>
+    </nav>
+
+    <section class="policy-section" id="acceptance">
+      <h2 class="sec-title">1. Acceptance of Terms</h2>
+      <p>
+        Welcome to MyPersonal Bible. These Terms of Use ("Terms") govern your access to and use of
+        MyPersonal Bible, available at <strong>mypersonal-bible-app.onrender.com</strong> and as an Android
+        APK (together, "the Service"). By accessing or using the Service, you agree to be bound by these
+        Terms. If you do not agree, please do not use the Service.
+      </p>
+    </section>
+
+    <section class="policy-section" id="the-service">
+      <h2 class="sec-title">2. Description of the Service</h2>
+      <p>
+        MyPersonal Bible is a free Bible reading, search, and audio application. It provides features such as
+        daily verses, full-text scripture search, an Audio Bible, bookmarks, highlights, and cloud sync across
+        devices when you sign in. The Service is provided at no cost, with no subscriptions, paywalls, or ads.
+      </p>
+    </section>
+
+    <section class="policy-section" id="eligibility">
+      <h2 class="sec-title">3. Eligibility</h2>
+      <p>
+        The Service is intended for a general audience. If you are under the age of 13 (or the minimum age of
+        digital consent in your country), you may only use the Service with the involvement and consent of a
+        parent or guardian.
+      </p>
+    </section>
+
+    <section class="policy-section" id="accounts">
+      <h2 class="sec-title">4. Accounts &amp; Google Sign-In</h2>
+      <p>
+        You can use core reading features of the Service without an account. Signing in with Google is
+        optional and enables features like syncing bookmarks, highlights, and reading progress across
+        devices. You're responsible for maintaining the confidentiality of your Google credentials and for
+        all activity that occurs through your account. Notify us promptly if you suspect unauthorized use of
+        your account.
+      </p>
+    </section>
+
+    <section class="policy-section" id="acceptable-use">
+      <h2 class="sec-title">5. Acceptable Use</h2>
+      <p>When using the Service, you agree not to:</p>
+      <ul>
+        <li>Use the Service for any unlawful purpose or in violation of any applicable law or regulation.</li>
+        <li>Attempt to gain unauthorized access to the Service, other users' accounts, or our systems and networks.</li>
+        <li>Interfere with, disrupt, or place undue burden on the Service (e.g., through scraping, bots, or denial-of-service attempts).</li>
+        <li>Reverse-engineer, decompile, or attempt to extract the source code of the Service, except where permitted by law.</li>
+        <li>Use the Service to transmit harmful code, spam, or content that infringes another person's rights.</li>
+      </ul>
+      <p>We reserve the right to suspend or terminate access for anyone who violates these Terms.</p>
+    </section>
+
+    <section class="policy-section" id="user-content">
+      <h2 class="sec-title">6. Your Content</h2>
+      <p>
+        "Your Content" means the bookmarks, highlights, notes, and preferences you create while using the
+        Service. You retain ownership of Your Content. By creating it within the Service, you grant us a
+        limited license to store, sync, and display it back to you as part of providing the Service. We do
+        not use Your Content for any purpose beyond operating and improving the Service, as described in our
+        <a class="inline-link" href="/privacy">Privacy Policy</a>.
+      </p>
+    </section>
+
+    <section class="policy-section" id="intellectual-property">
+      <h2 class="sec-title">7. Intellectual Property</h2>
+      <p>
+        The Service — including its design, layout, graphics, logo, and underlying code — is owned by
+        MyPersonal Bible and protected by applicable intellectual property laws, except where noted otherwise.
+        Bible text made available through the Service is provided under the applicable license or public-domain
+        status of each translation/version offered (for example, the King James Version is in the public
+        domain in most jurisdictions). You may not reproduce, redistribute, or create derivative works from
+        the Service's design or code without our prior written permission.
+      </p>
+    </section>
+
+    <section class="policy-section" id="donations">
+      <h2 class="sec-title">8. Donations &amp; Support</h2>
+      <p>
+        MyPersonal Bible is free to use, and any financial support you choose to give is voluntary and is not
+        a purchase of goods or services. Donations are processed by our third-party payment provider and are
+        generally non-refundable, except where required by law or at our discretion.
+      </p>
+    </section>
+
+    <section class="policy-section" id="third-party">
+      <h2 class="sec-title">9. Third-Party Services</h2>
+      <p>
+        The Service relies on third-party providers — including Google (for Sign-In), our hosting provider,
+        and a payment processor for donations. Your use of those features is also subject to the respective
+        third party's own terms and privacy policies. We are not responsible for the availability, content,
+        or practices of third-party services.
+      </p>
+    </section>
+
+    <section class="policy-section" id="availability">
+      <h2 class="sec-title">10. Availability &amp; Changes to the Service</h2>
+      <p>
+        We aim to keep the Service available and reliable, but we do not guarantee uninterrupted or error-free
+        access. We may modify, suspend, or discontinue any part of the Service — including individual
+        features — at any time, with or without notice.
+      </p>
+    </section>
+
+    <section class="policy-section" id="disclaimer">
+      <h2 class="sec-title">11. Disclaimer of Warranties</h2>
+      <p>
+        The Service is provided <strong>"as is"</strong> and <strong>"as available,"</strong> without
+        warranties of any kind, whether express or implied, including but not limited to warranties of
+        merchantability, fitness for a particular purpose, or non-infringement. We do not warrant that the
+        Service will be uninterrupted, secure, or error-free, or that any content is accurate or complete.
+      </p>
+    </section>
+
+    <section class="policy-section" id="liability">
+      <h2 class="sec-title">12. Limitation of Liability</h2>
+      <p>
+        To the fullest extent permitted by law, MyPersonal Bible and its developers shall not be liable for
+        any indirect, incidental, special, consequential, or punitive damages, or any loss of data, arising
+        from or related to your use of, or inability to use, the Service — even if advised of the possibility
+        of such damages. Because the Service is offered free of charge, our aggregate liability for any claim
+        relating to the Service is limited to the greater of the amount you paid us (if any) in the past
+        twelve months, or a nominal amount.
+      </p>
+    </section>
+
+    <section class="policy-section" id="termination">
+      <h2 class="sec-title">13. Termination</h2>
+      <p>
+        You may stop using the Service and delete your account at any time. We may suspend or terminate your
+        access to the Service if we believe, in good faith, that you have violated these Terms or that doing
+        so is necessary to protect the Service, its users, or third parties.
+      </p>
+    </section>
+
+    <section class="policy-section" id="governing-law">
+      <h2 class="sec-title">14. Governing Law</h2>
+      <p>
+        These Terms are governed by the laws of the Federal Republic of Nigeria, without regard to its
+        conflict-of-law provisions, unless otherwise required by the mandatory law of your country of
+        residence.
+      </p>
+    </section>
+
+    <section class="policy-section" id="changes">
+      <h2 class="sec-title">15. Changes to These Terms</h2>
+      <p>
+        We may update these Terms from time to time to reflect changes in the Service or for legal and
+        regulatory reasons. We'll update the "Effective Date" at the top of this page when we do. Continued
+        use of the Service after changes take effect constitutes acceptance of the revised Terms.
+      </p>
+    </section>
+
+    <section class="policy-section" id="contact">
+      <h2 class="sec-title">16. Contact Us</h2>
+      <p>
+        If you have questions about these Terms, please reach out through our
+        <a class="inline-link" href="/contact">Contact page</a>.
+      </p>
+    </section>
+
+  </div>
+</div>
+
+<footer class="page-footer">
+  <p>© 2026 MyPersonalBible. All rights reserved. · <a href="/">Home</a> · <a href="/privacy">Privacy Policy</a> · <a href="/contact">Contact</a></p>
+</footer>
+
+</body>
+</html>
