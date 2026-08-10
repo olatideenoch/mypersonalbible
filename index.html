@@ -676,6 +676,112 @@
     opacity:0.7;
   }
 
+  /* ── BIBLE IN A YEAR SPOTLIGHT ── */
+  .year-section {
+    padding: 100px 64px;
+    background: var(--parchment);
+    position: relative;
+    overflow: hidden;
+  }
+  .year-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .year-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+  }
+  .year-ring-wrap {
+    position: relative;
+    width: 220px;
+    height: 220px;
+  }
+  .year-ring-wrap svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+  .year-ring-track { fill: none; stroke: rgba(201,146,58,0.18); stroke-width: 12; }
+  .year-ring-fill {
+    fill: none;
+    stroke: var(--gold);
+    stroke-width: 12;
+    stroke-linecap: round;
+    stroke-dasharray: 628;
+    stroke-dashoffset: 546;
+    filter: drop-shadow(0 0 8px rgba(201,146,58,0.35));
+  }
+  .year-ring-center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .year-ring-day {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--brown);
+    line-height: 1;
+  }
+  .year-ring-total {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--brown-light);
+    margin-top: 6px;
+  }
+  .year-streak-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--white);
+    border: 1px solid rgba(201,146,58,0.3);
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--brown);
+    box-shadow: 0 8px 22px rgba(26,15,0,0.08);
+  }
+  .year-text .section-eyebrow { margin-bottom: 14px; display:inline-block; }
+  .year-text h2 {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: clamp(1.9rem, 3.4vw, 2.5rem);
+    color: var(--brown);
+    line-height: 1.25;
+    margin-bottom: 18px;
+  }
+  .year-text h2 em { color: var(--gold-dark); font-style: italic; }
+  .year-text p {
+    color: var(--brown-light);
+    font-size: 0.98rem;
+    line-height: 1.8;
+    margin-bottom: 22px;
+    max-width: 46ch;
+  }
+  .year-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 30px;
+  }
+  .year-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.92rem;
+    color: var(--brown);
+  }
+  .year-list .yl-icon { flex-shrink:0; font-size: 1rem; margin-top: 1px; }
+
   /* ── HOW IT WORKS ── */
   .how-section {
     padding: 110px 64px;
@@ -1431,6 +1537,10 @@
     .demo-info { order: 2; text-align: left; }
     footer { grid-template-columns:1fr 1fr; }
     .support-inner { grid-template-columns: 1fr; gap: 48px; }
+    .year-inner { grid-template-columns: 1fr; gap: 48px; text-align: center; }
+    .year-text p { margin-left: auto; margin-right: auto; }
+    .year-list { align-items: center; }
+    .year-list li { text-align: left; }
   }
 
   /* ── Small tablets / large phones ── */
@@ -1438,7 +1548,7 @@
     .hero { padding-top: 110px; }
     .hero-device { display:none; }
     .hero-stats { justify-content: center; gap: 32px; }
-    .features-section, .how-section, .demo-section, .video-section, .testimonials-section, .support-section, .cta-section {
+    .features-section, .year-section, .how-section, .demo-section, .video-section, .testimonials-section, .support-section, .cta-section {
       padding-left: 28px; padding-right: 28px;
     }
     .features-grid { grid-template-columns:1fr 1fr; gap: 1px; }
@@ -1469,6 +1579,10 @@
 
     .how-steps { grid-template-columns: 1fr; gap: 40px; }
 
+    .year-ring-wrap { width: 170px; height: 170px; }
+    .year-ring-day { font-size: 1.6rem; }
+    .year-text h2 { font-size: clamp(1.7rem, 8vw, 2.1rem); }
+
     .section-title { font-size: clamp(1.9rem, 8vw, 2.6rem); }
     .section-sub { font-size: 0.88rem; padding: 0 4px; }
 
@@ -1487,7 +1601,7 @@
 
     footer { grid-template-columns:1fr; padding: 40px 28px; gap: 32px; }
     .footer-bottom { flex-direction:column; gap:10px; text-align:center; padding: 18px 28px; }
-    .hero, .features-section, .how-section, .demo-section, .video-section, .testimonials-section, .support-section, .cta-section { padding-left:20px; padding-right:20px; }
+    .hero, .features-section, .year-section, .how-section, .demo-section, .video-section, .testimonials-section, .support-section, .cta-section { padding-left:20px; padding-right:20px; }
     .verse-section { padding: 60px 0; }
     .verse-ticker-item { font-size: 0.95rem; }
   }
@@ -1513,6 +1627,7 @@
     <li><a href="#features">Features</a></li>
     <li><a href="#how-it-works">How It Works</a></li>
     <li><a href="#demo">Demo</a></li>
+    <li><a href="https://mypersonal-bible-app.onrender.com/bible-in-a-year" target="_blank">Bible in a Year</a></li>
     <li><a href="#videos">Videos</a></li>
     <li><a href="#support">Support</a></li>
     <li><a href="https://mypersonal-bible-app.onrender.com" target="_blank" class="nav-cta">Open App</a></li>
@@ -1627,6 +1742,12 @@
       <p class="feature-desc">Save verses that speak to your heart and return to them effortlessly. Build your personal collection of life-changing scripture.</p>
       <span class="feature-tag">Personal Library</span>
     </div>
+    <div class="feature-card reveal reveal-delay-2">
+      <div class="feature-icon">🔥</div>
+      <div class="feature-name">Reading Streaks</div>
+      <p class="feature-desc">Every chapter you read keeps the flame alive. Track your current streak, your all-time best, and total days in the Word right from the nav bar.</p>
+      <span class="feature-tag">Stay Consistent</span>
+    </div>
     <div class="feature-card reveal">
       <div class="feature-icon">✨</div>
       <div class="feature-name">Verse Highlighting</div>
@@ -1640,10 +1761,10 @@
       <span class="feature-tag">Download & Stream</span>
     </div>
     <div class="feature-card reveal reveal-delay-2">
-      <div class="feature-icon">📊</div>
-      <div class="feature-name">Reading Progress</div>
-      <p class="feature-desc">Track your journey through the Bible. See chapters completed, maintain reading streaks, and celebrate milestones in your walk with God.</p>
-      <span class="feature-tag">Stay Consistent</span>
+      <div class="feature-icon">📆</div>
+      <div class="feature-name">Bible in a Year</div>
+      <p class="feature-desc">Walk through all 66 books in 365 days with a guided daily plan. Check off each reading as you go and watch your progress fill in, right where you left off.</p>
+      <span class="feature-tag">365-Day Plan</span>
     </div>
     <div class="feature-card reveal">
       <div class="feature-icon">☁️</div>
@@ -1652,16 +1773,41 @@
       <span class="feature-tag">Google Sign-In</span>
     </div>
     <div class="feature-card reveal reveal-delay-1">
-      <div class="feature-icon">📖</div>
-      <div class="feature-name">Quick Verse Lookup</div>
-      <p class="feature-desc">Jump directly to any verse or range instantly. Psalm 23:1, John 3:16–18, Romans 8:28 — arrive in one tap, every time.</p>
-      <span class="feature-tag">Instant Navigation</span>
-    </div>
-    <div class="feature-card reveal reveal-delay-2">
       <div class="feature-icon">🗂️</div>
-      <div class="feature-name">Bible Library</div>
-      <p class="feature-desc">Browse all 66 books from Genesis to Revelation with chapter counts, organized clearly for both Old and New Testament exploration.</p>
+      <div class="feature-name">Browse & Navigate</div>
+      <p class="feature-desc">Jump straight to any verse or range — Psalm 23:1, John 3:16–18 — in one tap, or browse the full canon from Genesis to Revelation with chapter counts for both testaments.</p>
       <span class="feature-tag">Complete Canon</span>
+    </div>
+  </div>
+</section>
+
+<!-- BIBLE IN A YEAR SPOTLIGHT -->
+<section class="year-section reveal" id="bible-year">
+  <div class="year-inner">
+    <div class="year-visual">
+      <div class="year-ring-wrap">
+        <svg viewBox="0 0 220 220">
+          <circle class="year-ring-track" cx="110" cy="110" r="100"/>
+          <circle class="year-ring-fill" cx="110" cy="110" r="100"/>
+        </svg>
+        <div class="year-ring-center">
+          <div class="year-ring-day">Day 47</div>
+          <div class="year-ring-total">of 365</div>
+        </div>
+      </div>
+      <div class="year-streak-chip">🔥 12-day streak</div>
+    </div>
+    <div class="year-text">
+      <span class="section-eyebrow">New Feature</span>
+      <h2>Read the Whole Bible in <em>One Year</em></h2>
+      <p>A guided, day-by-day plan through all 66 books — from Genesis to Revelation — built right into MyPersonalBible. Pick up exactly where you left off, and let your reading streak keep you accountable along the way.</p>
+      <ul class="year-list">
+        <li><span class="yl-icon">📆</span> 365 daily readings, evenly paced across the whole Bible</li>
+        <li><span class="yl-icon">✅</span> Check off each day as you complete it</li>
+        <li><span class="yl-icon">📈</span> Progress bar keeps you motivated and on track</li>
+        <li><span class="yl-icon">☁️</span> Saved to your account — resume on any device</li>
+      </ul>
+      <a href="https://mypersonal-bible-app.onrender.com/bible-in-a-year" target="_blank" class="btn-primary">Start the Plan →</a>
     </div>
   </div>
 </section>
@@ -2037,6 +2183,7 @@
       <li><a href="https://mypersonal-bible-app.onrender.com/#daily" target="_blank">Daily Verse</a></li>
       <li><a href="https://mypersonal-bible-app.onrender.com/#search" target="_blank">Search Scripture</a></li>
       <li><a href="https://mypersonal-bible-app.onrender.com/#books" target="_blank">Browse Books</a></li>
+      <li><a href="https://mypersonal-bible-app.onrender.com/bible-in-a-year" target="_blank">Bible in a Year</a></li>
       <li><a href="https://mypersonal-bible-app.onrender.com/install" target="_blank">Download APK</a></li>
     </ul>
   </div>
@@ -2046,6 +2193,7 @@
       <li><a href="https://mypersonal-bible-app.onrender.com" target="_blank">Bookmarks</a></li>
       <li><a href="https://mypersonal-bible-app.onrender.com" target="_blank">Highlighting</a></li>
       <li><a href="https://mypersonal-bible-app.onrender.com" target="_blank">Audio Bible</a></li>
+      <li><a href="https://mypersonal-bible-app.onrender.com" target="_blank">Reading Streaks</a></li>
       <li><a href="https://mypersonal-bible-app.onrender.com" target="_blank">Cloud Sync</a></li>
     </ul>
   </div>
