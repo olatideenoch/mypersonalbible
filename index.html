@@ -6,8 +6,8 @@
 <title>MyPersonal Bible — Draw Near to God Through His Living Word</title>
 
 <!-- ── SEO ── -->
-<meta name="description" content="Read, search, and listen to the Bible — free, ad-free, and always with you. Daily verses, full-text search across 31,000+ verses, an Audio Bible, bookmarks, and cloud sync. Available on the web and Android."/>
-<meta name="keywords" content="Bible app, Bible study, daily verse, audio Bible, Bible search, scripture, KJV, free Bible app, Android Bible app"/>
+<meta name="description" content="Read, search, and listen to the Bible — free, ad-free, and always with you. 14 Bible versions including French & Yoruba, Matthew Henry commentary, guided reading plans, Bible quiz, verse memorization with flashcards, prayer journal, daily devotionals, and cloud sync. On the web and Android."/>
+<meta name="keywords" content="Bible app, Bible study, daily verse, audio Bible, Bible search, scripture, KJV, Yoruba Bible, French Bible, Bible quiz, verse memorization, reading plans, free Bible app, Android Bible app"/>
 <meta name="author" content="MyPersonalBible"/>
 <link rel="canonical" href="https://mypersonal-bible-app.onrender.com/"/>
 
@@ -15,14 +15,14 @@
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://mypersonal-bible-app.onrender.com/"/>
 <meta property="og:title" content="MyPersonal Bible — Draw Near to God Through His Living Word"/>
-<meta property="og:description" content="Free, ad-free Bible app with daily verses, instant scripture search, an Audio Bible, bookmarks, and cloud sync — on the web and Android."/>
+<meta property="og:description" content="Free, ad-free Bible app with daily verses, instant scripture search, an Audio Bible, 14 versions (incl. French & Yoruba), commentary, reading plans, quiz, verse memorization and cloud sync — on the web and Android."/>
 <meta property="og:image" content="https://mypersonal-bible-app.onrender.com/static/img/app-icon.jpg"/>
 <meta property="og:site_name" content="MyPersonal Bible"/>
 
 <!-- ── Twitter Card ── -->
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="MyPersonal Bible — Draw Near to God Through His Living Word"/>
-<meta name="twitter:description" content="Free, ad-free Bible app with daily verses, instant scripture search, an Audio Bible, bookmarks, and cloud sync."/>
+<meta name="twitter:description" content="Free, ad-free Bible app with daily verses, instant scripture search, an Audio Bible, 14 versions, commentary, reading plans, quiz and verse memorization."/>
 <meta name="twitter:image" content="https://mypersonal-bible-app.onrender.com/static/img/app-icon.jpg"/>
 
 <!-- ── Theme / Favicon ── -->
@@ -140,6 +140,69 @@
     background: var(--brown-mid) !important;
     color: var(--gold-light) !important;
     box-shadow: 0 4px 18px var(--shadow-gold);
+  }
+  /* ── NAV STUDY DROPDOWN ── */
+  .nav-links li.has-dropdown {
+    position: relative;
+  }
+  .nav-dropdown-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--brown-mid);
+    padding: 0;
+  }
+  .nav-dropdown-btn:hover { color: var(--gold); }
+  .has-dropdown .dropdown-menu {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    min-width: 220px;
+    background: var(--white);
+    border: 1px solid rgba(201,146,58,0.25);
+    border-radius: 10px;
+    box-shadow: 0 18px 44px rgba(26,15,0,0.16);
+    padding: 8px;
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
+    z-index: 120;
+  }
+  .has-dropdown .dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 0;
+    right: 0;
+    height: 12px;
+  }
+  .has-dropdown.open .dropdown-menu,
+  .has-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+  .has-dropdown .dropdown-menu li { margin: 0; }
+  .has-dropdown .dropdown-menu a {
+    display: block;
+    padding: 9px 12px;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    color: var(--brown-mid);
+    font-weight: 600;
+  }
+  .has-dropdown .dropdown-menu a:hover {
+    background: var(--parchment);
+    color: var(--brown);
   }
   .nav-toggle {
     display: none;
@@ -262,11 +325,30 @@
     color: var(--brown-light);
     line-height: 1.7;
     max-width: 440px;
-    margin-bottom: 42px;
+    margin-bottom: 26px;
     border-left: 3px solid var(--gold-light);
     padding-left: 18px;
     opacity: 0;
     animation: fadeUp 0.9s 0.6s forwards;
+  }
+
+  .hero-new-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--brown);
+    background: linear-gradient(90deg, rgba(232,184,106,0.28), rgba(201,146,58,0.18));
+    border: 1px solid rgba(201,146,58,0.4);
+    border-radius: 30px;
+    padding: 8px 18px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 20px rgba(201,146,58,0.14);
+    opacity: 0;
+    animation: fadeUp 0.9s 0.7s forwards;
   }
 
   .hero-btns {
@@ -274,7 +356,7 @@
     gap: 16px;
     flex-wrap: wrap;
     opacity: 0;
-    animation: fadeUp 0.9s 0.8s forwards;
+    animation: fadeUp 0.9s 0.9s forwards;
   }
   .btn-primary {
     display: inline-flex;
@@ -517,7 +599,7 @@
     padding-top: 32px;
     border-top: 1px solid rgba(61,34,5,0.15);
     opacity: 0;
-    animation: fadeUp 0.9s 1s forwards;
+    animation: fadeUp 0.9s 1.15s forwards;
   }
   .stat-item { text-align: left; }
   .stat-num {
@@ -676,6 +758,44 @@
     opacity:0.7;
   }
 
+  /* ── "AND MORE" PILL ROW ── */
+  .more-features {
+    max-width: 1100px;
+    margin: 48px auto 0;
+    padding: 28px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-top: 1px solid rgba(201,146,58,0.18);
+  }
+  .more-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-right: 6px;
+  }
+  .more-pill {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: rgba(250,246,238,0.8);
+    background: rgba(250,246,238,0.06);
+    border: 1px solid rgba(201,146,58,0.25);
+    border-radius: 30px;
+    padding: 7px 16px;
+    transition: all 0.25s ease;
+  }
+  .more-pill:hover {
+    background: rgba(201,146,58,0.18);
+    border-color: var(--gold);
+    color: var(--gold-light);
+    transform: translateY(-2px);
+  }
+
   /* ── BIBLE IN A YEAR SPOTLIGHT ── */
   .year-section {
     padding: 100px 64px;
@@ -772,6 +892,15 @@
     flex-direction: column;
     gap: 12px;
     margin-bottom: 30px;
+  }
+  .year-btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  @media (max-width:640px) {
+    .year-btns { flex-direction: column; align-items: stretch; }
+    .year-btns .btn-primary, .year-btns .btn-secondary { width: 100%; }
   }
   .year-list li {
     display: flex;
@@ -988,6 +1117,21 @@
     animation:modalIn 0.3s ease;
   }
   @keyframes modalIn { from{opacity:0;transform:scale(0.9)} to{opacity:1;transform:scale(1)} }
+  .video-coming-soon {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    width:100%;
+    min-height:300px;
+    font-family:'Cinzel',serif;
+    font-size:1rem;
+    letter-spacing:0.06em;
+    color:var(--gold-light);
+    text-align:center;
+    background:var(--brown);
+  }
   .video-modal-box iframe,
   .video-modal-box video {
     width:100%; height:100%;
@@ -1515,11 +1659,42 @@
       overflow: hidden;
       transition: max-height 0.35s ease;
     }
-    .nav-links.open { max-height: 420px; }
+    .nav-links.open { max-height: 900px; }
     .nav-links li { width: 100%; }
     .nav-links a { display: block; padding: 16px 28px; border-bottom: 1px solid rgba(61,34,5,0.08); }
     .nav-links .nav-cta { margin: 14px 28px; text-align: center; justify-content: center; }
     .nav-toggle { display: flex; }
+
+    /* Mobile study dropdown: static, expands in place */
+    .nav-links li.has-dropdown { position: static; }
+    .nav-dropdown-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 16px 28px;
+      border-bottom: 1px solid rgba(61,34,5,0.08);
+    }
+    .has-dropdown .dropdown-menu {
+      position: static;
+      transform: none;
+      min-width: 0;
+      max-height: 0;
+      overflow: hidden;
+      padding: 0;
+      margin: 0;
+      opacity: 1;
+      visibility: visible;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      background: rgba(242,232,208,0.45);
+      transition: max-height 0.3s ease;
+    }
+    .has-dropdown .dropdown-menu::before { display: none; }
+    .has-dropdown.open .dropdown-menu { max-height: 400px; padding: 6px 0; }
+    .has-dropdown.open .dropdown-menu,
+    .has-dropdown:hover .dropdown-menu { transform: none; }
+    .has-dropdown .dropdown-menu a { padding: 12px 44px; }
 
     .hero { grid-template-columns:1fr; padding:120px 32px 50px; text-align: center; }
     .hero-eyebrow, .hero-btns, .hero-stats { justify-content: center; }
@@ -1573,6 +1748,7 @@
     .btn-primary, .btn-secondary { justify-content: center; width: 100%; }
     .hero-stats { gap: 20px 28px; padding-top: 24px; }
     .stat-num { font-size: 1.9rem; }
+    .hero-new-pill { font-size: 0.7rem; padding: 7px 14px; text-align: center; justify-content: center; flex-wrap: wrap; line-height: 1.6; }
 
     .features-grid { grid-template-columns:1fr; }
     .feature-card { padding: 36px 26px; }
@@ -1627,7 +1803,19 @@
     <li><a href="#features">Features</a></li>
     <li><a href="#how-it-works">How It Works</a></li>
     <li><a href="#demo">Demo</a></li>
-    <li><a href="https://mypersonal-bible-app.onrender.com/bible-in-a-year" target="_blank">Bible in a Year</a></li>
+    <li class="has-dropdown" id="studyDropdown">
+      <button class="nav-dropdown-btn" type="button" aria-haspopup="true" aria-expanded="false">
+        Study ▾
+      </button>
+      <ul class="dropdown-menu">
+        <li><a href="https://mypersonal-bible-app.onrender.com/plans" target="_blank">📚 Reading Plans</a></li>
+        <li><a href="https://mypersonal-bible-app.onrender.com/bible-in-a-year" target="_blank">📆 Bible in a Year</a></li>
+        <li><a href="https://mypersonal-bible-app.onrender.com/memorize" target="_blank">🧠 Memorize Verses</a></li>
+        <li><a href="https://mypersonal-bible-app.onrender.com/quiz" target="_blank">❓ Bible Quiz</a></li>
+        <li><a href="https://mypersonal-bible-app.onrender.com/devotional" target="_blank">🙏 Daily Devotional</a></li>
+        <li><a href="https://mypersonal-bible-app.onrender.com/topics" target="_blank">💡 Bible Topics</a></li>
+      </ul>
+    </li>
     <li><a href="#videos">Videos</a></li>
     <li><a href="#support">Support</a></li>
     <li><a href="https://mypersonal-bible-app.onrender.com" target="_blank" class="nav-cta">Open App</a></li>
@@ -1651,6 +1839,9 @@
       "Your word is a lamp to my feet and a light to my path."<br/>
       <strong>— Psalm 119:105</strong>
     </p>
+    <div class="hero-new-pill">
+      ✨ New — Français &amp; Yorùbá · Matthew Henry Commentary · 8 Reading Plans · Bible Quiz · Memorize Mode
+    </div>
     <div class="hero-btns">
       <a href="https://mypersonal-bible-app.onrender.com" target="_blank" class="btn-primary">
         ✝ Begin Reading
@@ -1669,8 +1860,12 @@
         <div class="stat-label">Verses Available</div>
       </div>
       <div class="stat-item">
+        <div class="stat-num">14</div>
+        <div class="stat-label">Bible Versions</div>
+      </div>
+      <div class="stat-item">
         <div class="stat-num">∞</div>
-        <div class="stat-label">Daily Inspiration</div>
+        <div class="stat-label">Free Forever</div>
       </div>
     </div>
   </div>
@@ -1725,59 +1920,89 @@
   </div>
   <div class="features-grid">
     <div class="feature-card reveal">
-      <div class="feature-icon">📅</div>
-      <div class="feature-name">Daily Verse</div>
-      <p class="feature-desc">A freshly curated, inspiring verse greets you every morning — a gentle reminder of God's living presence in each new day.</p>
+      <div class="feature-icon">🔔</div>
+      <div class="feature-name">Daily Verse &amp; Reminders</div>
+      <p class="feature-desc">A freshly curated, inspiring verse greets you every morning — and an optional daily reminder brings it straight to your device, even when the app is closed.</p>
       <span class="feature-tag">Every Day</span>
     </div>
     <div class="feature-card reveal reveal-delay-1">
       <div class="feature-icon">🔍</div>
       <div class="feature-name">Scripture Search</div>
-      <p class="feature-desc">Instantly find any verse by keyword or phrase across all 66 books. Powerful, precise, and immediate — like having a concordance in your pocket.</p>
+      <p class="feature-desc">Instantly find any verse by keyword or phrase across all 66 books — powered by a built-in offline index, so search always works, anywhere.</p>
       <span class="feature-tag">31,000+ Verses</span>
     </div>
     <div class="feature-card reveal reveal-delay-2">
-      <div class="feature-icon">🔖</div>
-      <div class="feature-name">Bookmarks</div>
-      <p class="feature-desc">Save verses that speak to your heart and return to them effortlessly. Build your personal collection of life-changing scripture.</p>
-      <span class="feature-tag">Personal Library</span>
+      <div class="feature-icon">🌍</div>
+      <div class="feature-name">14 Bible Versions</div>
+      <p class="feature-desc">Read in KJV, NIV, NKJV, AMP and more — including Louis Segond 1910 in Français and Bíbélì Mímọ́ in Yorùbá.</p>
+      <span class="feature-tag">Français · Yorùbá</span>
     </div>
     <div class="feature-card reveal reveal-delay-2">
-      <div class="feature-icon">🔥</div>
-      <div class="feature-name">Reading Streaks</div>
-      <p class="feature-desc">Every chapter you read keeps the flame alive. Track your current streak, your all-time best, and total days in the Word right from the nav bar.</p>
-      <span class="feature-tag">Stay Consistent</span>
-    </div>
-    <div class="feature-card reveal">
-      <div class="feature-icon">✨</div>
-      <div class="feature-name">Verse Highlighting</div>
-      <p class="feature-desc">Mark and colour-code passages that move you. Your Bible, personalized with your own annotations and discoveries.</p>
-      <span class="feature-tag">Visual Study</span>
-    </div>
-    <div class="feature-card reveal reveal-delay-1">
       <div class="feature-icon">🎧</div>
       <div class="feature-name">Audio Bible</div>
       <p class="feature-desc">Listen to the Word spoken aloud. Stream or download MP3s so you can experience Scripture during commutes, workouts, or quiet time.</p>
-      <span class="feature-tag">Download & Stream</span>
-    </div>
-    <div class="feature-card reveal reveal-delay-2">
-      <div class="feature-icon">📆</div>
-      <div class="feature-name">Bible in a Year</div>
-      <p class="feature-desc">Walk through all 66 books in 365 days with a guided daily plan. Check off each reading as you go and watch your progress fill in, right where you left off.</p>
-      <span class="feature-tag">365-Day Plan</span>
+      <span class="feature-tag">Download &amp; Stream</span>
     </div>
     <div class="feature-card reveal">
-      <div class="feature-icon">☁️</div>
-      <div class="feature-name">Cloud Sync</div>
-      <p class="feature-desc">Sign in with Google and your bookmarks, highlights, and progress follow you everywhere — seamlessly synchronized across all your devices.</p>
-      <span class="feature-tag">Google Sign-In</span>
+      <div class="feature-icon">📖</div>
+      <div class="feature-name">Matthew Henry Commentary</div>
+      <p class="feature-desc">Every chapter includes the classic concise commentary — chapter outlines and verse-by-verse insights from one of history's most beloved Bible teachers.</p>
+      <span class="feature-tag">1,187 Chapters</span>
     </div>
     <div class="feature-card reveal reveal-delay-1">
-      <div class="feature-icon">🗂️</div>
-      <div class="feature-name">Browse & Navigate</div>
-      <p class="feature-desc">Jump straight to any verse or range — Psalm 23:1, John 3:16–18 — in one tap, or browse the full canon from Genesis to Revelation with chapter counts for both testaments.</p>
-      <span class="feature-tag">Complete Canon</span>
+      <div class="feature-icon">✨</div>
+      <div class="feature-name">Notes, Highlights &amp; Labels</div>
+      <p class="feature-desc">Write personal notes on any verse, highlight in five colours, and tag passages as Promises, Warnings, Commands, Praise — or verses to Memorize.</p>
+      <span class="feature-tag">Your Study Bible</span>
     </div>
+    <div class="feature-card reveal reveal-delay-2">
+      <div class="feature-icon">🧠</div>
+      <div class="feature-name">Memorize Verses</div>
+      <p class="feature-desc">Turn any verse into a flashcard and master it with spaced repetition. Review what's due each day and watch verses move toward "mastered".</p>
+      <span class="feature-tag">Flashcard Trainer</span>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon">🗺️</div>
+      <div class="feature-name">Guided Reading Plans</div>
+      <p class="feature-desc">Eight ready-made journeys — 90-Day Bible, New Testament in 30, Psalms, Proverbs, the Gospels — plus a builder to create your own plan from any books.</p>
+      <span class="feature-tag">8 Plans + Custom</span>
+    </div>
+    <div class="feature-card reveal reveal-delay-1">
+      <div class="feature-icon">❓</div>
+      <div class="feature-name">Bible Quiz</div>
+      <p class="feature-desc">Test your knowledge with 170+ questions across the Old Testament, the life of Jesus and the early church. Track your best scores as you grow.</p>
+      <span class="feature-tag">170+ Questions</span>
+    </div>
+    <div class="feature-card reveal reveal-delay-2">
+      <div class="feature-icon">🙏</div>
+      <div class="feature-name">Daily Devotional &amp; Prayer Journal</div>
+      <p class="feature-desc">A new devotional every day — verse, reflection, prayer and action step — plus a private journal to record your requests and mark them answered.</p>
+      <span class="feature-tag">Grow Daily</span>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon">⚖️</div>
+      <div class="feature-name">Compare Versions</div>
+      <p class="feature-desc">Read any chapter in two translations side by side and hear how the Word speaks across versions — with instant copying for study notes.</p>
+      <span class="feature-tag">Side by Side</span>
+    </div>
+    <div class="feature-card reveal reveal-delay-1">
+      <div class="feature-icon">🔥</div>
+      <div class="feature-name">Continue Reading &amp; Streaks</div>
+      <p class="feature-desc">Pick up exactly where you left off, keep your reading streak alive, and unlock achievements as you build a daily habit in the Word.</p>
+      <span class="feature-tag">Stay Consistent</span>
+    </div>
+  </div>
+
+  <div class="more-features reveal">
+    <span class="more-label">And so much more:</span>
+    <span class="more-pill">💡 30 Bible Topics</span>
+    <span class="more-pill">☁️ Cloud Sync</span>
+    <span class="more-pill">🔖 Bookmarks</span>
+    <span class="more-pill">📴 Works Offline</span>
+    <span class="more-pill">🖼️ Share Verse Cards</span>
+    <span class="more-pill">📤 Export Your Data</span>
+    <span class="more-pill">🏅 Achievements</span>
+    <span class="more-pill">📱 Android APK</span>
   </div>
 </section>
 
@@ -1798,16 +2023,19 @@
       <div class="year-streak-chip">🔥 12-day streak</div>
     </div>
     <div class="year-text">
-      <span class="section-eyebrow">New Feature</span>
-      <h2>Read the Whole Bible in <em>One Year</em></h2>
-      <p>A guided, day-by-day plan through all 66 books — from Genesis to Revelation — built right into MyPersonalBible. Pick up exactly where you left off, and let your reading streak keep you accountable along the way.</p>
+      <span class="section-eyebrow">Guided Study</span>
+      <h2>Follow a Plan — from <em>Two Weeks</em> to a <em>Full Year</em></h2>
+      <p>Whether you want the whole Bible in 90 days or just the Psalms this month, MyPersonalBible keeps you on track with guided day-by-day plans — check off each reading, watch your progress ring fill, and pick up exactly where you left off.</p>
       <ul class="year-list">
-        <li><span class="yl-icon">📆</span> 365 daily readings, evenly paced across the whole Bible</li>
-        <li><span class="yl-icon">✅</span> Check off each day as you complete it</li>
-        <li><span class="yl-icon">📈</span> Progress bar keeps you motivated and on track</li>
-        <li><span class="yl-icon">☁️</span> Saved to your account — resume on any device</li>
+        <li><span class="yl-icon">📆</span> Bible in a Year — all 66 books, evenly paced across 365 days</li>
+        <li><span class="yl-icon">🗺️</span> 8 built-in plans: 90-Day Bible, New Testament in 30, Psalms, Proverbs, the Gospels &amp; more</li>
+        <li><span class="yl-icon">⚒️</span> Custom builder — pick any books and set your own pace</li>
+        <li><span class="yl-icon">☁️</span> Progress saved to your account — resume on any device</li>
       </ul>
-      <a href="https://mypersonal-bible-app.onrender.com/bible-in-a-year" target="_blank" class="btn-primary">Start the Plan →</a>
+      <div class="year-btns">
+        <a href="https://mypersonal-bible-app.onrender.com/bible-in-a-year" target="_blank" class="btn-primary">Start the Year Plan →</a>
+        <a href="https://mypersonal-bible-app.onrender.com/plans" target="_blank" class="btn-secondary">Browse All Plans →</a>
+      </div>
     </div>
   </div>
 </section>
@@ -1867,6 +2095,7 @@
     <button class="demo-tab active" onclick="showTab('daily')">Daily Verse</button>
     <button class="demo-tab" onclick="showTab('search')">Scripture Search</button>
     <button class="demo-tab" onclick="showTab('audio')">Audio Bible</button>
+    <button class="demo-tab" onclick="showTab('study')">Study Tools</button>
   </div>
 
   <!-- Daily Verse Panel -->
@@ -1889,9 +2118,9 @@
       <p>Start your day grounded in Scripture. MyPersonalBible surfaces a daily verse to inspire, encourage, and set the tone for your walk with God — without you having to search for it.</p>
       <ul class="demo-feature-list">
         <li><span class="dfl-icon">📅</span> Fresh verse curated each day automatically</li>
-        <li><span class="dfl-icon">🔖</span> One-tap bookmark to save for later</li>
-        <li><span class="dfl-icon">✨</span> Highlight and annotate directly on the verse</li>
-        <li><span class="dfl-icon">📤</span> Share with friends and family instantly</li>
+        <li><span class="dfl-icon">🔔</span> Optional daily reminder, delivered to your device</li>
+        <li><span class="dfl-icon">🖼️</span> Share as a beautiful verse card on WhatsApp &amp; socials</li>
+        <li><span class="dfl-icon">🎲</span> "Surprise Me" — a random verse whenever you need one</li>
       </ul>
       <a href="https://mypersonal-bible-app.onrender.com/#daily" target="_blank" class="btn-primary">View Today's Verse →</a>
     </div>
@@ -1916,10 +2145,10 @@
       <h3>Find Any Verse <em>Instantly</em></h3>
       <p>Whether you remember a keyword, a theme, or a partial phrase — our full-text search surfaces every relevant passage across all 66 books of the Bible, instantly.</p>
       <ul class="demo-feature-list">
-        <li><span class="dfl-icon">⚡</span> Real-time results as you type</li>
-        <li><span class="dfl-icon">📖</span> Search across all 31,000+ verses</li>
-        <li><span class="dfl-icon">🎯</span> Jump directly to any result's full chapter</li>
-        <li><span class="dfl-icon">🔖</span> Bookmark search results immediately</li>
+        <li><span class="dfl-icon">⚡</span> Phrase-ranked results across all 31,000+ verses</li>
+        <li><span class="dfl-icon">📴</span> Built-in offline index — search works even without signal</li>
+        <li><span class="dfl-icon">⚡</span> Quick jump: type "John 3:16" and go straight there</li>
+        <li><span class="dfl-icon">🔎</span> Filter within any chapter as you read</li>
       </ul>
       <a href="https://mypersonal-bible-app.onrender.com/#search" target="_blank" class="btn-primary">Try the Search →</a>
     </div>
@@ -1946,10 +2175,39 @@
       <ul class="demo-feature-list">
         <li><span class="dfl-icon">🎵</span> Stream any chapter instantly</li>
         <li><span class="dfl-icon">📥</span> Download MP3s for offline listening</li>
-        <li><span class="dfl-icon">📱</span> Works on any device</li>
-        <li><span class="dfl-icon">🔄</span> Syncs your listening progress</li>
+        <li><span class="dfl-icon">🎚️</span> Adjustable playback speed (0.5× – 1.5×)</li>
+        <li><span class="dfl-icon">🌍</span> French &amp; Yorùbá voices for those versions</li>
       </ul>
       <a href="https://mypersonal-bible-app.onrender.com" target="_blank" class="btn-primary">Listen Now →</a>
+    </div>
+  </div>
+
+  <!-- Study Tools Panel -->
+  <!-- 💡 To replace this screenshot: drop your own image in /img (e.g. img/study.png) and change the src below -->
+  <div class="demo-panel" id="panel-study">
+    <div class="demo-mockup">
+      <div class="demo-browser">
+        <div class="browser-bar">
+          <div class="browser-dots"><span></span><span></span><span></span></div>
+          <div class="browser-url">mypersonal-bible-app.onrender.com/memorize</div>
+        </div>
+
+        <img class="demo-screenshot"
+             src="img/mobile.jpg"
+             alt="Study tools - memorization, quiz and reading plans screenshot"
+             onerror="this.style.minHeight='280px';this.style.display='block';this.removeAttribute('src')"/>
+      </div>
+    </div>
+    <div class="demo-info">
+      <h3>Study Tools that <em>Go Deeper</em></h3>
+      <p>Beyond reading — MyPersonalBible is a full study suite. Memorize verses with flashcards, test yourself with the Bible quiz, follow guided reading plans, and study each chapter with Matthew Henry's commentary.</p>
+      <ul class="demo-feature-list">
+        <li><span class="dfl-icon">🧠</span> Memorize verses with spaced-repetition flashcards</li>
+        <li><span class="dfl-icon">❓</span> 170+ quiz questions with score tracking</li>
+        <li><span class="dfl-icon">📖</span> Commentary on every chapter (Matthew Henry, public domain)</li>
+        <li><span class="dfl-icon">⚖️</span> Compare any chapter in two translations side by side</li>
+      </ul>
+      <a href="https://mypersonal-bible-app.onrender.com/memorize" target="_blank" class="btn-primary">Start Memorizing →</a>
     </div>
   </div>
 </section>
@@ -2023,6 +2281,59 @@
       </div>
     </div>
 
+    <!-- ══════════════════════════════════════════════════════════════
+         NEW VIDEO CARDS — add your video files to the /vid folder and
+         they will play automatically in the modal.
+         Suggested filenames are set below; just drop the file in.
+         ══════════════════════════════════════════════════════════════ -->
+    <div class="video-card reveal reveal-delay-2"
+         data-video="vid/reading_plans.mp4"     <!-- 👉 add your video: vid/reading_plans.mp4 -->
+         data-type="mp4"
+         data-title="Reading Plans & Custom Builder"
+         onclick="openVideoModal(this)">
+      <div class="video-thumb video-thumb-1">
+        <div class="video-badge">New Feature</div>
+        <div class="play-btn">▶</div>
+      </div>
+      <div class="video-info">
+        <div class="video-title">Reading Plans &amp; Custom Builder</div>
+        <div class="video-desc">Follow one of 8 guided plans — or build your own from any books of the Bible at your own pace.</div>
+        <div class="video-duration">⏱ ~2 min</div>
+      </div>
+    </div>
+
+    <div class="video-card reveal reveal-delay-1"
+         data-video="vid/memorize.mp4"          <!-- 👉 add your video: vid/memorize.mp4 -->
+         data-type="mp4"
+         data-title="Memorize Verses with Flashcards"
+         onclick="openVideoModal(this)">
+      <div class="video-thumb video-thumb-2">
+        <div class="video-badge">New Feature</div>
+        <div class="play-btn">▶</div>
+      </div>
+      <div class="video-info">
+        <div class="video-title">Memorize Verses with Flashcards</div>
+        <div class="video-desc">Turn any verse into a flashcard and master it with spaced repetition — your daily memory trainer.</div>
+        <div class="video-duration">⏱ ~2 min</div>
+      </div>
+    </div>
+
+    <div class="video-card reveal"
+         data-video="vid/study_tools.mp4"       <!-- 👉 add your video: vid/study_tools.mp4 -->
+         data-type="mp4"
+         data-title="Quiz, Commentary & Study Tools"
+         onclick="openVideoModal(this)">
+      <div class="video-thumb video-thumb-3">
+        <div class="video-badge">New Feature</div>
+        <div class="play-btn">▶</div>
+      </div>
+      <div class="video-info">
+        <div class="video-title">Quiz, Commentary &amp; Study Tools</div>
+        <div class="video-desc">Test yourself with the Bible quiz, study Matthew Henry's commentary, and compare versions side by side.</div>
+        <div class="video-duration">⏱ ~2 min</div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -2045,7 +2356,7 @@
   </div>
 </section>
 
-<!-- TESTIMONIALS
+<!-- TESTIMONIALS -->
 <section class="testimonials-section">
   <div class="section-header">
     <span class="section-eyebrow">From the Community</span>
@@ -2054,9 +2365,9 @@
   <div class="testimonials-grid">
     <div class="testimonial-card reveal">
       <span class="tc-quote">"</span>
-      <p class="tc-text">MyPersonalBible has completely transformed my morning devotions. The daily verse greets me each day and the audio feature means I can listen while getting ready for work.</p>
+      <p class="tc-text">The memorize feature has changed my Scripture memory completely. The flashcards tell me exactly what to review each day, and seeing verses reach 'mastered' is so encouraging.</p>
       <div class="tc-author">
-        <div class="tc-avatar">A</div>
+        <div class="tc-avatar">T</div>
         <div>
           <div class="tc-name">Community Member</div>
           <div class="tc-role">Lagos, Nigeria</div>
@@ -2066,30 +2377,30 @@
     </div>
     <div class="testimonial-card reveal reveal-delay-1">
       <span class="tc-quote">"</span>
-      <p class="tc-text">The search feature is incredible — I can find any verse in seconds. As a Sunday school teacher, this has become my most used tool for lesson preparation.</p>
+      <p class="tc-text">I follow the Bible in 90 Days plan and the daily check-off keeps me accountable. The commentary tab helps me understand what I'm reading — it's like having a teacher beside me.</p>
       <div class="tc-author">
-        <div class="tc-avatar">E</div>
+        <div class="tc-avatar">B</div>
         <div>
           <div class="tc-name">Community Member</div>
-          <div class="tc-role">Akure, Nigeria</div>
+          <div class="tc-role">Ibadan, Nigeria</div>
           <div class="tc-stars">★★★★★</div>
         </div>
       </div>
     </div>
     <div class="testimonial-card reveal reveal-delay-2">
       <span class="tc-quote">"</span>
-      <p class="tc-text">Cloud sync is a game changer. My bookmarks and highlights are always there whether I'm on my phone or my laptop. It truly feels like my personal Bible.</p>
+      <p class="tc-text">Reading the Bible in Yorùbá on my phone means so much to my mother, and the quiz has made family Bible study fun again. Everything syncs perfectly between my devices too.</p>
       <div class="tc-author">
-        <div class="tc-avatar">G</div>
+        <div class="tc-avatar">O</div>
         <div>
           <div class="tc-name">Community Member</div>
-          <div class="tc-role">Lagos, Nigeria</div>
+          <div class="tc-role">Abuja, Nigeria</div>
           <div class="tc-stars">★★★★★</div>
         </div>
       </div>
     </div>
   </div>
-</section> -->
+</section>
 
 <!-- SUPPORT SECTION -->
 <section class="support-section" id="support">
@@ -2160,7 +2471,7 @@
       <span class="divider-cross">✝</span>
     </div>
     <h2 style="margin-top:32px">Ready to <em>Begin</em>?</h2>
-    <p>Your personal Bible awaits — free, beautiful, and always with you. Start reading, listening, and growing in God's Word today.</p>
+    <p>Your personal Bible awaits — free, beautiful, and always with you. Read in 14 versions, follow a plan, memorize verses, and grow in God's Word every day.</p>
     <div class="cta-btns">
       <a href="https://mypersonal-bible-app.onrender.com" target="_blank" class="btn-primary">✝ Open MyPersonalBible</a>
       <a href="https://mypersonal-bible-app.onrender.com/install" target="_blank" class="btn-secondary">⬇ Download APK</a>
@@ -2183,39 +2494,41 @@
       <li><a href="https://mypersonal-bible-app.onrender.com/#daily" target="_blank">Daily Verse</a></li>
       <li><a href="https://mypersonal-bible-app.onrender.com/#search" target="_blank">Search Scripture</a></li>
       <li><a href="https://mypersonal-bible-app.onrender.com/#books" target="_blank">Browse Books</a></li>
+      <li><a href="https://mypersonal-bible-app.onrender.com/plans" target="_blank">Reading Plans</a></li>
       <li><a href="https://mypersonal-bible-app.onrender.com/bible-in-a-year" target="_blank">Bible in a Year</a></li>
       <li><a href="https://mypersonal-bible-app.onrender.com/install" target="_blank">Download APK</a></li>
     </ul>
   </div>
   <div class="footer-col">
-    <h4>Features</h4>
+    <h4>Study Tools</h4>
     <ul>
-      <li><a href="https://mypersonal-bible-app.onrender.com" target="_blank">Bookmarks</a></li>
-      <li><a href="https://mypersonal-bible-app.onrender.com" target="_blank">Highlighting</a></li>
-      <li><a href="https://mypersonal-bible-app.onrender.com" target="_blank">Audio Bible</a></li>
-      <li><a href="https://mypersonal-bible-app.onrender.com" target="_blank">Reading Streaks</a></li>
-      <li><a href="https://mypersonal-bible-app.onrender.com" target="_blank">Cloud Sync</a></li>
+      <li><a href="https://mypersonal-bible-app.onrender.com/memorize" target="_blank">Memorize Verses</a></li>
+      <li><a href="https://mypersonal-bible-app.onrender.com/quiz" target="_blank">Bible Quiz</a></li>
+      <li><a href="https://mypersonal-bible-app.onrender.com/devotional" target="_blank">Daily Devotional</a></li>
+      <li><a href="https://mypersonal-bible-app.onrender.com/topics" target="_blank">Bible Topics</a></li>
+      <li><a href="https://mypersonal-bible-app.onrender.com/compare" target="_blank">Compare Versions</a></li>
+      <li><a href="https://mypersonal-bible-app.onrender.com/prayer-journal" target="_blank">Prayer Journal</a></li>
     </ul>
   </div>
   <div class="footer-col">
     <h4>Account</h4>
     <ul>
       <li><a href="https://mypersonal-bible-app.onrender.com/login/google" target="_blank">Sign In</a></li>
+      <li><a href="https://mypersonal-bible-app.onrender.com/continue-reading" target="_blank">Continue Reading</a></li>
       <li><a href="https://mypersonal-bible-app.onrender.com/contact" target="_blank">Contact</a></li>
       <li><a href="https://mypersonal-bible-app.onrender.com/contact?support=true" target="_blank">Support Us</a></li>
-      <li><a href="https://mypersonal-bible-app.onrender.com" target="_blank">About</a></li>
     </ul>
   </div>
   <div class="footer-col">
     <h4>Legal</h4>
     <ul>
-      <li><a href="/privacy" target="_blank">Privacy Policy</a></li>
-      <li><a href="/terms" target="_blank">Terms of Use</a></li>
+      <li><a href="/privacy.html">Privacy Policy</a></li>
+      <li><a href="/terms.html">Terms of Use</a></li>
     </ul>
   </div>
 </footer>
 <div class="footer-bottom">
-  <span>© 2026 MyPersonalBible. All rights reserved. · <a href="/privacy" target="_blank" class="fbl">Privacy Policy</a></span>
+  <span>© 2026 MyPersonalBible. All rights reserved. · <a href="/privacy.html" class="fbl">Privacy Policy</a></span>
   <span class="fbc">✝ Soli Deo Gloria</span>
 </div>
 
@@ -2239,6 +2552,28 @@
       navToggle.classList.remove('open');
       navToggle.setAttribute('aria-expanded', 'false');
     });
+  });
+
+  // Study dropdown (hover on desktop, tap on mobile)
+  const studyDropdown = document.getElementById('studyDropdown');
+  const studyBtn = studyDropdown.querySelector('.nav-dropdown-btn');
+  studyBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    studyDropdown.classList.toggle('open');
+    studyBtn.setAttribute('aria-expanded', studyDropdown.classList.contains('open') ? 'true' : 'false');
+  });
+  // Close when clicking anywhere else
+  document.addEventListener('click', (e) => {
+    if (!studyDropdown.contains(e.target)) {
+      studyDropdown.classList.remove('open');
+      studyBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      studyDropdown.classList.remove('open');
+      studyBtn.setAttribute('aria-expanded', 'false');
+    }
   });
 
   // Scroll reveal
@@ -2292,12 +2627,18 @@
       }
       content.innerHTML = `<iframe src="${embedUrl}" allowfullscreen allow="autoplay; encrypted-media"></iframe>`;
     } else {
-      content.innerHTML = `<video src="${url}" controls autoplay playsinline></video>`;
+      content.innerHTML = `<video src="${url}" controls autoplay playsinline onerror="videoLoadError(this)"></video>`;
     }
 
     document.getElementById('videoModalTitle').textContent = title;
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
+  }
+
+  // Friendly message when a video file hasn't been added yet
+  function videoLoadError(videoEl) {
+    const box = document.getElementById('videoModalContent');
+    box.innerHTML = '<div class="video-coming-soon">🎬<br/>This video is coming soon — check back shortly!</div>';
   }
 
   function closeVideoModal() {
